@@ -131,3 +131,30 @@ export function morrisInorder(root) {
     }
     return result;
 }
+
+// Routine 7: dijkstra
+
+/**
+ * Dijkstra's Algorithm for Single Source Shortest Paths
+ * Time: O((V + E) log V), Space: O(V)
+ */
+export function dijkstra(numNodes, adjacencyList, source) {
+    const distances = Array(numNodes).fill(Infinity);
+    distances[source] = 0;
+    const visited = new Set();
+    const queue = [[0, source]];
+    while (queue.length) {
+        queue.sort((a, b) => a[0] - b[0]);
+        const [dist, u] = queue.shift();
+        if (visited.has(u)) continue;
+        visited.add(u);
+        const neighbors = adjacencyList[u] || [];
+        for (const [v, weight] of neighbors) {
+            if (distances[u] + weight < distances[v]) {
+                distances[v] = distances[u] + weight;
+                queue.push([distances[v], v]);
+            }
+        }
+    }
+    return distances;
+}
