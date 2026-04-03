@@ -255,3 +255,31 @@ export function modPow(base, exp, mod) {
     }
     return Number(res);
 }
+
+// Routine 12: topologicalSort
+
+/**
+ * Topological Sort using Kahn's BFS Algorithm
+ * Time: O(V + E), Space: O(V)
+ */
+export function topologicalSort(numNodes, edges) {
+    const inDegree = Array(numNodes).fill(0);
+    const adj = Array.from({ length: numNodes }, () => []);
+    for (const [u, v] of edges) {
+        adj[u].push(v);
+        inDegree[v]++;
+    }
+    const queue = [];
+    for (let i = 0; i < numNodes; i++) {
+        if (inDegree[i] === 0) queue.push(i);
+    }
+    const order = [];
+    while (queue.length) {
+        const node = queue.shift();
+        order.push(node);
+        for (const next of adj[node]) {
+            if (--inDegree[next] === 0) queue.push(next);
+        }
+    }
+    return order.length === numNodes ? order : [];
+}
