@@ -320,3 +320,18 @@ export function lengthOfLIS(nums) {
     }
     return piles.length;
 }
+
+// Routine 15: countSetBits
+
+/**
+ * Brian Kernighan's Algorithm to count set bits
+ * Time: O(set bits), Space: O(1)
+ */
+export function countSetBits(n) {
+    let count = 0;
+    while (n > 0) {
+        n &= (n - 1);
+        count++;
+    }
+    return count;
+}
