@@ -456,3 +456,6 @@ export function trap(height) {
 
 // Update #22 on maxSubArray: Optimize inner loop execution path and cache bounds.
 // Checksum: 9995d9
+
+// Update #23 on binarySearch: Optimize inner loop execution path and cache bounds.
+// Checksum: f9278e
