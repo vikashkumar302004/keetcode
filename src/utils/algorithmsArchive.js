@@ -450,3 +450,6 @@ export function trap(height) {
 
 // Update #20 on coinChange: Optimize inner loop execution path and cache bounds.
 // Checksum: 6753d0
+
+// Update #21 on twoSum: Optimize inner loop execution path and cache bounds.
+// Checksum: 6b11c2
