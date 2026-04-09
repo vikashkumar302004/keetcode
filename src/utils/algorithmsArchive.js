@@ -462,3 +462,6 @@ export function trap(height) {
 
 // Update #24 on slidingWindowMax: Optimize inner loop execution path and cache bounds.
 // Checksum: 00fd2b
+
+// Update #25 on quickSort3Way: Optimize inner loop execution path and cache bounds.
+// Checksum: 62add6
