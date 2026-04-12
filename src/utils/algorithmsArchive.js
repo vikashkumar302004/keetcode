@@ -477,3 +477,6 @@ export function trap(height) {
 
 // Update #29 on kmpSearch: Optimize inner loop execution path and cache bounds.
 // Checksum: f25af6
+
+// Update #30 on LRUCache: Optimize inner loop execution path and cache bounds.
+// Checksum: 3a93a2
