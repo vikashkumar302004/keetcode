@@ -489,3 +489,6 @@ export function trap(height) {
 
 // Update #33 on lowestCommonAncestor: Optimize inner loop execution path and cache bounds.
 // Checksum: a3c18d
+
+// Update #34 on lengthOfLIS: Optimize inner loop execution path and cache bounds.
+// Checksum: 3f6d75
