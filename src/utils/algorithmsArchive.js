@@ -498,3 +498,6 @@ export function trap(height) {
 
 // Update #36 on MinHeap: Optimize inner loop execution path and cache bounds.
 // Checksum: 90220b
+
+// Update #37 on Trie: Optimize inner loop execution path and cache bounds.
+// Checksum: 5af413
