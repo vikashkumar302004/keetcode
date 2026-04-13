@@ -492,3 +492,6 @@ export function trap(height) {
 
 // Update #34 on lengthOfLIS: Optimize inner loop execution path and cache bounds.
 // Checksum: 3f6d75
+
+// Update #35 on countSetBits: Optimize inner loop execution path and cache bounds.
+// Checksum: 6c71f0
