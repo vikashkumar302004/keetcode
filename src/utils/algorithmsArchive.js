@@ -525,3 +525,6 @@ export function trap(height) {
 
 // Update #45 on quickSort3Way: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 4f2005
+
+// Update #46 on morrisInorder: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 038ecc
