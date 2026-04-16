@@ -531,3 +531,6 @@ export function trap(height) {
 
 // Update #47 on dijkstra: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: ce0f20
+
+// Update #48 on knapsack01: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 0f4913
