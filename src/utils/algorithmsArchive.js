@@ -546,3 +546,6 @@ export function trap(height) {
 
 // Update #52 on topologicalSort: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 8d29ff
+
+// Update #53 on lowestCommonAncestor: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 0969c0
