@@ -555,3 +555,6 @@ export function trap(height) {
 
 // Update #55 on countSetBits: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: e118fa
+
+// Update #56 on MinHeap: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 627996
