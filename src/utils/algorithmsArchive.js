@@ -576,3 +576,6 @@ export function trap(height) {
 
 // Update #62 on maxSubArray: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 958bc1
+
+// Update #63 on binarySearch: Add JSDoc annotations detailing time and space complexity.
+// Checksum: 6938f1
