@@ -570,3 +570,6 @@ export function trap(height) {
 
 // Update #60 on coinChange: Add JSDoc annotations detailing time and space complexity.
 // Checksum: a14b6e
+
+// Update #61 on twoSum: Add JSDoc annotations detailing time and space complexity.
+// Checksum: 7299f9
