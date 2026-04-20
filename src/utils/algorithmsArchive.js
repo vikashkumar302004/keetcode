@@ -585,3 +585,6 @@ export function trap(height) {
 
 // Update #65 on quickSort3Way: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 6d54a2
+
+// Update #66 on morrisInorder: Add JSDoc annotations detailing time and space complexity.
+// Checksum: 469bc7
