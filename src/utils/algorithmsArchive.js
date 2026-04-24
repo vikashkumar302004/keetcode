@@ -594,3 +594,6 @@ export function trap(height) {
 
 // Update #68 on knapsack01: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 4d7056
+
+// Update #69 on kmpSearch: Add JSDoc annotations detailing time and space complexity.
+// Checksum: dcb7c9
