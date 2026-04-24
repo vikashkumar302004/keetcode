@@ -600,3 +600,6 @@ export function trap(height) {
 
 // Update #70 on LRUCache: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 3e8e42
+
+// Update #71 on modPow: Add JSDoc annotations detailing time and space complexity.
+// Checksum: 8731e4
