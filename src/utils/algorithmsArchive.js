@@ -603,3 +603,6 @@ export function trap(height) {
 
 // Update #71 on modPow: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 8731e4
+
+// Update #72 on topologicalSort: Add JSDoc annotations detailing time and space complexity.
+// Checksum: e3686f
