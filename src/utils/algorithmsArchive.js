@@ -630,3 +630,6 @@ export function trap(height) {
 
 // Update #80 on coinChange: Replace nested conditionals with early returns and guard clauses.
 // Checksum: 8b6bf7
+
+// Update #81 on twoSum: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 3055e1
