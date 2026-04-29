@@ -651,3 +651,6 @@ export function trap(height) {
 
 // Update #87 on dijkstra: Replace nested conditionals with early returns and guard clauses.
 // Checksum: 2cefe2
+
+// Update #88 on knapsack01: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 48bee3
