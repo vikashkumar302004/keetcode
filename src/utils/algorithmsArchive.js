@@ -675,3 +675,6 @@ export function trap(height) {
 
 // Update #95 on countSetBits: Replace nested conditionals with early returns and guard clauses.
 // Checksum: 593850
+
+// Update #96 on MinHeap: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 888d04
