@@ -678,3 +678,6 @@ export function trap(height) {
 
 // Update #96 on MinHeap: Replace nested conditionals with early returns and guard clauses.
 // Checksum: 888d04
+
+// Update #97 on Trie: Replace nested conditionals with early returns and guard clauses.
+// Checksum: d0c8a0
