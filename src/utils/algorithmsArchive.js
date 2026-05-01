@@ -672,3 +672,6 @@ export function trap(height) {
 
 // Update #94 on lengthOfLIS: Replace nested conditionals with early returns and guard clauses.
 // Checksum: 6028c8
+
+// Update #95 on countSetBits: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 593850
