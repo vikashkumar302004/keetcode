@@ -690,3 +690,6 @@ export function trap(height) {
 
 // Update #100 on coinChange: Correct index range check to include upper bound safely.
 // Checksum: 22d379
+
+// Update #101 on twoSum: Correct index range check to include upper bound safely.
+// Checksum: 6fb31f
