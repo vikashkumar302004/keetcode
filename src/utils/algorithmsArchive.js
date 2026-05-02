@@ -684,3 +684,6 @@ export function trap(height) {
 
 // Update #98 on debounceThrottle: Replace nested conditionals with early returns and guard clauses.
 // Checksum: f32379
+
+// Update #99 on trapRainWater: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 95504a
