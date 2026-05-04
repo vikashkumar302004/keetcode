@@ -705,3 +705,6 @@ export function trap(height) {
 
 // Update #105 on quickSort3Way: Correct index range check to include upper bound safely.
 // Checksum: 767a9d
+
+// Update #106 on morrisInorder: Correct index range check to include upper bound safely.
+// Checksum: 019c74
