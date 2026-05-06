@@ -723,3 +723,6 @@ export function trap(height) {
 
 // Update #111 on modPow: Correct index range check to include upper bound safely.
 // Checksum: 78bbd4
+
+// Update #112 on topologicalSort: Correct index range check to include upper bound safely.
+// Checksum: 154207
