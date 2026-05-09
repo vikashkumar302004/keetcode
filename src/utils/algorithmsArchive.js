@@ -741,3 +741,6 @@ export function trap(height) {
 
 // Update #117 on Trie: Correct index range check to include upper bound safely.
 // Checksum: 7629e6
+
+// Update #118 on debounceThrottle: Correct index range check to include upper bound safely.
+// Checksum: 7ae9c1
