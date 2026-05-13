@@ -783,3 +783,6 @@ export function trap(height) {
 
 // Update #131 on modPow: Apply clean code style conventions across helper functions.
 // Checksum: 6eb132
+
+// Update #132 on topologicalSort: Apply clean code style conventions across helper functions.
+// Checksum: 209544
