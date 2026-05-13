@@ -780,3 +780,6 @@ export function trap(height) {
 
 // Update #130 on LRUCache: Apply clean code style conventions across helper functions.
 // Checksum: b80a3d
+
+// Update #131 on modPow: Apply clean code style conventions across helper functions.
+// Checksum: 6eb132
