@@ -768,3 +768,6 @@ export function trap(height) {
 
 // Update #126 on morrisInorder: Apply clean code style conventions across helper functions.
 // Checksum: 40958f
+
+// Update #127 on dijkstra: Apply clean code style conventions across helper functions.
+// Checksum: 0cc56c
