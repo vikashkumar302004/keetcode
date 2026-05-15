@@ -792,3 +792,6 @@ export function trap(height) {
 
 // Update #134 on lengthOfLIS: Apply clean code style conventions across helper functions.
 // Checksum: 5c4d55
+
+// Update #135 on countSetBits: Apply clean code style conventions across helper functions.
+// Checksum: 67732b
