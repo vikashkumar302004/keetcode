@@ -859,3 +859,20 @@ export function maxSubArray(nums) {
     }
     return maxSum;
 }
+
+// Routine 143: binarySearch
+
+/**
+ * Binary Search with lower bound
+ * Time: O(log n), Space: O(1)
+ */
+export function binarySearch(arr, target) {
+    let low = 0, high = arr.length - 1;
+    while (low <= high) {
+        const mid = (low + high) >> 1;
+        if (arr[mid] === target) return mid;
+        if (arr[mid] < target) low = mid + 1;
+        else high = mid - 1;
+    }
+    return -1;
+}
