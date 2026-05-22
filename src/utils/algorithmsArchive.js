@@ -1156,3 +1156,44 @@ export function countSetBits(n) {
     }
     return count;
 }
+
+// Routine 156: MinHeap
+
+/**
+ * Binary Min-Heap Implementation
+ */
+export class MinHeap {
+    constructor() { this.heap = []; }
+    push(val) {
+        this.heap.push(val);
+        this._siftUp(this.heap.length - 1);
+    }
+    pop() {
+        if (this.heap.length === 0) return null;
+        const top = this.heap[0];
+        const bottom = this.heap.pop();
+        if (this.heap.length > 0) {
+            this.heap[0] = bottom;
+            this._siftDown(0);
+        }
+        return top;
+    }
+    _siftUp(idx) {
+        while (idx > 0) {
+            const parent = (idx - 1) >> 1;
+            if (this.heap[idx] >= this.heap[parent]) break;
+            [this.heap[idx], this.heap[parent]] = [this.heap[parent], this.heap[idx]];
+            idx = parent;
+        }
+    }
+    _siftDown(idx) {
+        const len = this.heap.length;
+        while ((idx << 1) + 1 < len) {
+            let left = (idx << 1) + 1, right = left + 1;
+            let smallest = (right < len && this.heap[right] < this.heap[left]) ? right : left;
+            if (this.heap[idx] <= this.heap[smallest]) break;
+            [this.heap[idx], this.heap[smallest]] = [this.heap[smallest], this.heap[idx]];
+            idx = smallest;
+        }
+    }
+}
