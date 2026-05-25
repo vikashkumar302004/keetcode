@@ -1280,3 +1280,6 @@ export function trap(height) {
 
 // Update #163 on binarySearch: Optimize inner loop execution path and cache bounds.
 // Checksum: af330f
+
+// Update #164 on slidingWindowMax: Optimize inner loop execution path and cache bounds.
+// Checksum: 63a920
