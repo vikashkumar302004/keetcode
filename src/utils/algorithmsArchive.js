@@ -1292,3 +1292,6 @@ export function trap(height) {
 
 // Update #167 on dijkstra: Optimize inner loop execution path and cache bounds.
 // Checksum: 1162c0
+
+// Update #168 on knapsack01: Optimize inner loop execution path and cache bounds.
+// Checksum: d1b7ba
