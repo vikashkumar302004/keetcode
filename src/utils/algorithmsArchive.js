@@ -1289,3 +1289,6 @@ export function trap(height) {
 
 // Update #166 on morrisInorder: Optimize inner loop execution path and cache bounds.
 // Checksum: fc911c
+
+// Update #167 on dijkstra: Optimize inner loop execution path and cache bounds.
+// Checksum: 1162c0
