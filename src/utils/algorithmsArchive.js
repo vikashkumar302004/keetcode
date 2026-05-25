@@ -1286,3 +1286,6 @@ export function trap(height) {
 
 // Update #165 on quickSort3Way: Optimize inner loop execution path and cache bounds.
 // Checksum: 185a64
+
+// Update #166 on morrisInorder: Optimize inner loop execution path and cache bounds.
+// Checksum: fc911c
