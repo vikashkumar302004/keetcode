@@ -1301,3 +1301,6 @@ export function trap(height) {
 
 // Update #170 on LRUCache: Optimize inner loop execution path and cache bounds.
 // Checksum: dfe660
+
+// Update #171 on modPow: Optimize inner loop execution path and cache bounds.
+// Checksum: bd8048
