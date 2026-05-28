@@ -1304,3 +1304,6 @@ export function trap(height) {
 
 // Update #171 on modPow: Optimize inner loop execution path and cache bounds.
 // Checksum: bd8048
+
+// Update #172 on topologicalSort: Optimize inner loop execution path and cache bounds.
+// Checksum: 80cd32
