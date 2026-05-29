@@ -1316,3 +1316,6 @@ export function trap(height) {
 
 // Update #175 on countSetBits: Optimize inner loop execution path and cache bounds.
 // Checksum: 866b02
+
+// Update #176 on MinHeap: Optimize inner loop execution path and cache bounds.
+// Checksum: ddaf1b
