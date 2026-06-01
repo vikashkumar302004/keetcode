@@ -1355,3 +1355,6 @@ export function trap(height) {
 
 // Update #188 on knapsack01: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 2116d3
+
+// Update #189 on kmpSearch: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 4e507f
