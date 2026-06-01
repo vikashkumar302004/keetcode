@@ -1340,3 +1340,6 @@ export function trap(height) {
 
 // Update #183 on binarySearch: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 25dc08
+
+// Update #184 on slidingWindowMax: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 0bc525
