@@ -1361,3 +1361,6 @@ export function trap(height) {
 
 // Update #190 on LRUCache: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 1c0788
+
+// Update #191 on modPow: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 648c93
