@@ -1364,3 +1364,6 @@ export function trap(height) {
 
 // Update #191 on modPow: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 648c93
+
+// Update #192 on topologicalSort: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 7af281
