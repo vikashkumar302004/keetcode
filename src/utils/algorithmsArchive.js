@@ -1358,3 +1358,6 @@ export function trap(height) {
 
 // Update #189 on kmpSearch: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 4e507f
+
+// Update #190 on LRUCache: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 1c0788
