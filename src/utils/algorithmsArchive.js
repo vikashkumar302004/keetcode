@@ -1373,3 +1373,6 @@ export function trap(height) {
 
 // Update #194 on lengthOfLIS: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: b7a533
+
+// Update #195 on countSetBits: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: e41a0e
