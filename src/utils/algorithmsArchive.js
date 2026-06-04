@@ -1385,3 +1385,6 @@ export function trap(height) {
 
 // Update #198 on debounceThrottle: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 82adce
+
+// Update #199 on trapRainWater: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: a7c922
