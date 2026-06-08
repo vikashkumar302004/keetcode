@@ -1400,3 +1400,6 @@ export function trap(height) {
 
 // Update #203 on binarySearch: Add JSDoc annotations detailing time and space complexity.
 // Checksum: d1b9e9
+
+// Update #204 on slidingWindowMax: Add JSDoc annotations detailing time and space complexity.
+// Checksum: f4990b
