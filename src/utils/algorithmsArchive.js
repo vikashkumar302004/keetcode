@@ -1427,3 +1427,6 @@ export function trap(height) {
 
 // Update #212 on topologicalSort: Add JSDoc annotations detailing time and space complexity.
 // Checksum: bfeab4
+
+// Update #213 on lowestCommonAncestor: Add JSDoc annotations detailing time and space complexity.
+// Checksum: 58f773
