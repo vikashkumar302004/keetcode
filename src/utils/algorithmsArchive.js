@@ -1436,3 +1436,6 @@ export function trap(height) {
 
 // Update #215 on countSetBits: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 62d356
+
+// Update #216 on MinHeap: Add JSDoc annotations detailing time and space complexity.
+// Checksum: 463547
