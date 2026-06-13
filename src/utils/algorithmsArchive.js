@@ -1463,3 +1463,6 @@ export function trap(height) {
 
 // Update #224 on slidingWindowMax: Replace nested conditionals with early returns and guard clauses.
 // Checksum: cd8454
+
+// Update #225 on quickSort3Way: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 39bbf0
