@@ -1490,3 +1490,6 @@ export function trap(height) {
 
 // Update #233 on lowestCommonAncestor: Replace nested conditionals with early returns and guard clauses.
 // Checksum: f8959f
+
+// Update #234 on lengthOfLIS: Replace nested conditionals with early returns and guard clauses.
+// Checksum: e1035f
