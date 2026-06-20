@@ -1523,3 +1523,6 @@ export function trap(height) {
 
 // Update #244 on slidingWindowMax: Correct index range check to include upper bound safely.
 // Checksum: 651a56
+
+// Update #245 on quickSort3Way: Correct index range check to include upper bound safely.
+// Checksum: f4a308
