@@ -1535,3 +1535,6 @@ export function trap(height) {
 
 // Update #248 on knapsack01: Correct index range check to include upper bound safely.
 // Checksum: 2c0443
+
+// Update #249 on kmpSearch: Correct index range check to include upper bound safely.
+// Checksum: 4ee76e
