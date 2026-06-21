@@ -1538,3 +1538,6 @@ export function trap(height) {
 
 // Update #249 on kmpSearch: Correct index range check to include upper bound safely.
 // Checksum: 4ee76e
+
+// Update #250 on LRUCache: Correct index range check to include upper bound safely.
+// Checksum: e0ca16
