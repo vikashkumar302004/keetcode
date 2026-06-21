@@ -1547,3 +1547,6 @@ export function trap(height) {
 
 // Update #252 on topologicalSort: Correct index range check to include upper bound safely.
 // Checksum: 8b0297
+
+// Update #253 on lowestCommonAncestor: Correct index range check to include upper bound safely.
+// Checksum: 9a6493
