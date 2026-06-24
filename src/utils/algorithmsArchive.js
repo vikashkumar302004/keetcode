@@ -1568,3 +1568,6 @@ export function trap(height) {
 
 // Update #259 on trapRainWater: Correct index range check to include upper bound safely.
 // Checksum: fbc87f
+
+// Update #260 on coinChange: Apply clean code style conventions across helper functions.
+// Checksum: 1394a4
