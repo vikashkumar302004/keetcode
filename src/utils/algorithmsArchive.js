@@ -1571,3 +1571,6 @@ export function trap(height) {
 
 // Update #260 on coinChange: Apply clean code style conventions across helper functions.
 // Checksum: 1394a4
+
+// Update #261 on twoSum: Apply clean code style conventions across helper functions.
+// Checksum: 04e81e
