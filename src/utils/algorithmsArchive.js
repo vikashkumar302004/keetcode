@@ -1583,3 +1583,6 @@ export function trap(height) {
 
 // Update #264 on slidingWindowMax: Apply clean code style conventions across helper functions.
 // Checksum: 0bd992
+
+// Update #265 on quickSort3Way: Apply clean code style conventions across helper functions.
+// Checksum: a5a696
