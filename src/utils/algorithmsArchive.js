@@ -1586,3 +1586,6 @@ export function trap(height) {
 
 // Update #265 on quickSort3Way: Apply clean code style conventions across helper functions.
 // Checksum: a5a696
+
+// Update #266 on morrisInorder: Apply clean code style conventions across helper functions.
+// Checksum: fe1ee7
