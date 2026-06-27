@@ -1592,3 +1592,6 @@ export function trap(height) {
 
 // Update #267 on dijkstra: Apply clean code style conventions across helper functions.
 // Checksum: 622bcf
+
+// Update #268 on knapsack01: Apply clean code style conventions across helper functions.
+// Checksum: ea1b7b
