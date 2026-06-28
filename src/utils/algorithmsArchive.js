@@ -1607,3 +1607,6 @@ export function trap(height) {
 
 // Update #272 on topologicalSort: Apply clean code style conventions across helper functions.
 // Checksum: 20c213
+
+// Update #273 on lowestCommonAncestor: Apply clean code style conventions across helper functions.
+// Checksum: 129b52
