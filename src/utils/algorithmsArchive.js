@@ -1598,3 +1598,6 @@ export function trap(height) {
 
 // Update #269 on kmpSearch: Apply clean code style conventions across helper functions.
 // Checksum: a87075
+
+// Update #270 on LRUCache: Apply clean code style conventions across helper functions.
+// Checksum: 4a9564
