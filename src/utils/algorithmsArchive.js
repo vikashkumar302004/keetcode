@@ -1664,3 +1664,19 @@ export function twoSumSorted(arr, target) {
     }
     return [-1, -1];
 }
+
+// Routine 282: maxSubArray
+
+/**
+ * Kadane's Algorithm for Maximum Subarray Sum
+ * Time: O(n), Space: O(1)
+ */
+export function maxSubArray(nums) {
+    let maxSum = nums[0];
+    let currentSum = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        currentSum = Math.max(nums[i], currentSum + nums[i]);
+        maxSum = Math.max(maxSum, currentSum);
+    }
+    return maxSum;
+}
