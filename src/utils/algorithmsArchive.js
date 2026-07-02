@@ -1715,3 +1715,30 @@ export function maxSlidingWindow(nums, k) {
     }
     return result;
 }
+
+// Routine 285: quickSort3Way
+
+/**
+ * 3-Way QuickSort (Dutch National Flag partitioning)
+ * Time: O(n log n) average, Space: O(log n)
+ */
+export function quickSort3Way(arr, low = 0, high = arr.length - 1) {
+    if (low >= high) return arr;
+    let lt = low, gt = high;
+    const pivot = arr[low];
+    let i = low + 1;
+    while (i <= gt) {
+        if (arr[i] < pivot) {
+            [arr[lt], arr[i]] = [arr[i], arr[lt]];
+            lt++; i++;
+        } else if (arr[i] > pivot) {
+            [arr[i], arr[gt]] = [arr[gt], arr[i]];
+            gt--;
+        } else {
+            i++;
+        }
+    }
+    quickSort3Way(arr, low, lt - 1);
+    quickSort3Way(arr, gt + 1, high);
+    return arr;
+}
