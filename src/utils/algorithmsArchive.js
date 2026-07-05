@@ -1800,3 +1800,19 @@ export function dijkstra(numNodes, adjacencyList, source) {
     }
     return distances;
 }
+
+// Routine 288: knapsack01
+
+/**
+ * 0/1 Knapsack Problem with space optimization
+ * Time: O(n * W), Space: O(W)
+ */
+export function knapsack01(weights, values, capacity) {
+    const dp = Array(capacity + 1).fill(0);
+    for (let i = 0; i < weights.length; i++) {
+        for (let w = capacity; w >= weights[i]; w--) {
+            dp[w] = Math.max(dp[w], dp[w - weights[i]] + values[i]);
+        }
+    }
+    return dp[capacity];
+}
