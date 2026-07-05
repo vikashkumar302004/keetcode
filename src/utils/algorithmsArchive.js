@@ -1742,3 +1742,34 @@ export function quickSort3Way(arr, low = 0, high = arr.length - 1) {
     quickSort3Way(arr, gt + 1, high);
     return arr;
 }
+
+// Routine 286: morrisInorder
+
+/**
+ * Morris Inorder Traversal
+ * Time: O(n), Space: O(1)
+ */
+export function morrisInorder(root) {
+    const result = [];
+    let curr = root;
+    while (curr) {
+        if (!curr.left) {
+            result.push(curr.val);
+            curr = curr.right;
+        } else {
+            let prev = curr.left;
+            while (prev.right && prev.right !== curr) {
+                prev = prev.right;
+            }
+            if (!prev.right) {
+                prev.right = curr;
+                curr = curr.left;
+            } else {
+                prev.right = null;
+                result.push(curr.val);
+                curr = curr.right;
+            }
+        }
+    }
+    return result;
+}
