@@ -1925,3 +1925,19 @@ export function topologicalSort(numNodes, edges) {
     }
     return order.length === numNodes ? order : [];
 }
+
+// Routine 293: lowestCommonAncestor
+
+/**
+ * Lowest Common Ancestor in Binary Search Tree
+ * Time: O(h), Space: O(1)
+ */
+export function lowestCommonAncestor(root, p, q) {
+    let curr = root;
+    while (curr) {
+        if (p.val < curr.val && q.val < curr.val) curr = curr.left;
+        else if (p.val > curr.val && q.val > curr.val) curr = curr.right;
+        else return curr;
+    }
+    return null;
+}
