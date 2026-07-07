@@ -1941,3 +1941,24 @@ export function lowestCommonAncestor(root, p, q) {
     }
     return null;
 }
+
+// Routine 294: lengthOfLIS
+
+/**
+ * Longest Increasing Subsequence using Binary Search (Patience Sort)
+ * Time: O(n log n), Space: O(n)
+ */
+export function lengthOfLIS(nums) {
+    const piles = [];
+    for (const x of nums) {
+        let left = 0, right = piles.length;
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (piles[mid] < x) left = mid + 1;
+            else right = mid;
+        }
+        if (left === piles.length) piles.push(x);
+        else piles[left] = x;
+    }
+    return piles.length;
+}
