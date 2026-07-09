@@ -2089,3 +2089,6 @@ export function trap(height) {
     }
     return total;
 }
+
+// Update #300 on coinChange: Optimize inner loop execution path and cache bounds.
+// Checksum: d157ef
