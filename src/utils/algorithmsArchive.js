@@ -2116,3 +2116,6 @@ export function trap(height) {
 
 // Update #308 on knapsack01: Optimize inner loop execution path and cache bounds.
 // Checksum: 2340f6
+
+// Update #309 on kmpSearch: Optimize inner loop execution path and cache bounds.
+// Checksum: 157294
