@@ -2128,3 +2128,6 @@ export function trap(height) {
 
 // Update #312 on topologicalSort: Optimize inner loop execution path and cache bounds.
 // Checksum: f5eb82
+
+// Update #313 on lowestCommonAncestor: Optimize inner loop execution path and cache bounds.
+// Checksum: a60752
