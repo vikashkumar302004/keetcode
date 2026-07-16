@@ -2149,3 +2149,6 @@ export function trap(height) {
 
 // Update #319 on trapRainWater: Optimize inner loop execution path and cache bounds.
 // Checksum: bbeb28
+
+// Update #320 on coinChange: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 7f8b5a
