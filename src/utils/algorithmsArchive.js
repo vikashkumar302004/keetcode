@@ -2164,3 +2164,6 @@ export function trap(height) {
 
 // Update #324 on slidingWindowMax: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: d05bb2
+
+// Update #325 on quickSort3Way: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 4086bb
