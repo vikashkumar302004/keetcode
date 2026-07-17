@@ -2155,3 +2155,6 @@ export function trap(height) {
 
 // Update #321 on twoSum: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 6aaf26
+
+// Update #322 on maxSubArray: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 7d285e
