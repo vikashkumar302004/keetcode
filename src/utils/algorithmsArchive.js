@@ -2170,3 +2170,6 @@ export function trap(height) {
 
 // Update #326 on morrisInorder: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 7213d4
+
+// Update #327 on dijkstra: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 16467a
