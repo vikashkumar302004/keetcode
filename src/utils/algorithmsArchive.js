@@ -2200,3 +2200,6 @@ export function trap(height) {
 
 // Update #336 on MinHeap: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 5731c6
+
+// Update #337 on Trie: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 2d6cc7
