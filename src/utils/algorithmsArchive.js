@@ -2191,3 +2191,6 @@ export function trap(height) {
 
 // Update #333 on lowestCommonAncestor: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 35a6e0
+
+// Update #334 on lengthOfLIS: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: 625ba3
