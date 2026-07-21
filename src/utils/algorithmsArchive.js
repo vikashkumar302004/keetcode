@@ -2209,3 +2209,6 @@ export function trap(height) {
 
 // Update #339 on trapRainWater: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 9e3d9d
+
+// Update #340 on coinChange: Add JSDoc annotations detailing time and space complexity.
+// Checksum: 0bd816
