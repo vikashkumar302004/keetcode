@@ -2224,3 +2224,6 @@ export function trap(height) {
 
 // Update #344 on slidingWindowMax: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 01fbb3
+
+// Update #345 on quickSort3Way: Add JSDoc annotations detailing time and space complexity.
+// Checksum: e8c56a
