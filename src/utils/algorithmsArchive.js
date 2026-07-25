@@ -2230,3 +2230,6 @@ export function trap(height) {
 
 // Update #346 on morrisInorder: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 60d86f
+
+// Update #347 on dijkstra: Add JSDoc annotations detailing time and space complexity.
+// Checksum: 9773f1
