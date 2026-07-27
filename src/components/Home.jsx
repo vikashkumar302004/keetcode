@@ -354,23 +354,165 @@ Target Companies: Google, Meta, Amazon, Microsoft
     <div className="home-page animate-fade">
 
       {/* Hero Section */}
-      <section className="container hero-section" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', alignItems: 'center', paddingTop: '10px' }}>
-        <div className="hero-content">
-          <div className="hero-badge">
-            <Flame size={14} color="#f59e0b" fill="#f59e0b" />
-            <span>The #1 Master DSA & System Design Preparation Platform</span>
+      <section className="container hero-section" style={{ display: 'flex', flexDirection: 'column', gap: '32px', paddingTop: '10px' }}>
+        
+        {/* TOP ROW: 2 Columns (Headline Left | IDE Compiler Right) */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '36px', alignItems: 'center' }}>
+          
+          {/* Left Column: Badge & Title */}
+          <div>
+            <div className="hero-badge" style={{ marginBottom: '16px' }}>
+              <Flame size={14} color="#f59e0b" fill="#f59e0b" />
+              <span>The #1 Master DSA & System Design Preparation Platform</span>
+            </div>
+
+            <h1 className="hero-title" style={{ margin: 0 }}>
+              Master Data Structures, Algorithms & <br />
+              <span className="gradient-text-animated">System Design Preparation</span>
+            </h1>
           </div>
 
-          <h1 className="hero-title">
-            Master Data Structures, Algorithms & <br />
-            <span className="gradient-text-animated">System Design Preparation</span>
-          </h1>
+          {/* Right Column: IDE Compiler Box */}
+          <div className="hero-visual">
+            <div className="ide-mockup-wrapper glass-panel" style={{ borderRadius: '20px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.15)', boxShadow: '0 25px 60px rgba(0,0,0,0.85)' }}>
+              
+              {/* Top IDE Header Bar */}
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'space-between', 
+                padding: '14px 24px', 
+                background: 'linear-gradient(90deg, #10141e, #0c0f17)', 
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                gap: '16px',
+                flexWrap: 'nowrap'
+              }}>
+                
+                {/* Left: Authentic macOS Window Controls & File Tab */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                  
+                  {/* Authentic macOS Window Dots */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f56', boxShadow: '0 0 8px rgba(255, 95, 86, 0.5)' }} />
+                    <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e', boxShadow: '0 0 8px rgba(255, 189, 46, 0.5)' }} />
+                    <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#27c93f', boxShadow: '0 0 8px rgba(39, 201, 63, 0.5)' }} />
+                  </div>
 
-          <p className="hero-subtitle">
+                  {/* File Tab Pill */}
+                  <div style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '8px', 
+                    padding: '6px 16px', 
+                    background: 'rgba(6, 182, 212, 0.12)', 
+                    borderRadius: '10px', 
+                    border: '1px solid rgba(6, 182, 212, 0.3)' 
+                  }}>
+                    <Code2 size={15} color="#06b6d4" />
+                    <span style={{ fontSize: '0.88rem', color: '#fff', fontWeight: 800, fontFamily: 'var(--font-mono)' }}>main.cpp</span>
+                    <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#10b981', boxShadow: '0 0 6px #10b981' }} />
+                  </div>
+
+                </div>
+
+                {/* Right: READY Badge & Run Code Button */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#10b981', background: 'rgba(16, 185, 129, 0.15)', padding: '5px 14px', borderRadius: '6px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
+                    C++ 20 (GCC)
+                  </span>
+
+                  <button 
+                    onClick={handleRunCode}
+                    disabled={isRunning}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: 'linear-gradient(90deg, #10b981, #06b6d4)',
+                      color: '#000',
+                      padding: '8px 24px',
+                      borderRadius: '8px',
+                      fontWeight: 900,
+                      fontSize: '0.88rem',
+                      border: 'none',
+                      cursor: 'pointer',
+                      boxShadow: '0 4px 18px rgba(16, 185, 129, 0.45)',
+                      gap: '8px',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    {isRunning ? <RefreshCw size={15} className="spin-icon" color="#000" /> : <Play size={15} fill="#000" color="#000" />}
+                    <span>{isRunning ? 'Compiling...' : 'Run Code'}</span>
+                  </button>
+                </div>
+
+              </div>
+
+              {/* FULL WIDTH CODE EDITOR PANE */}
+              <div className="ide-code-pane" style={{ padding: '20px 24px', background: '#090d16', minHeight: '260px', overflowY: 'auto', maxHeight: '300px' }} ref={editorScrollRef}>
+                <div style={{ display: 'flex', gap: '20px', fontFamily: 'var(--font-mono)', fontSize: '0.9rem', lineHeight: '1.7' }}>
+                  
+                  {/* Line Numbers */}
+                  <div style={{ color: '#475569', textAlign: 'right', userSelect: 'none', display: 'flex', flexDirection: 'column', fontWeight: 600 }}>
+                    {codeLines.map((_, idx) => (
+                      <span key={idx}>{idx + 1}</span>
+                    ))}
+                  </div>
+
+                  {/* LeetCode Styled Colored Code */}
+                  <div style={{ flex: 1, whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                    {renderLeetCodeColoredCode(userCode)}
+                    {isAutoTyping && <span className="typing-cursor" style={{ color: '#06b6d4', fontWeight: 800 }}>|</span>}
+                  </div>
+
+                </div>
+              </div>
+
+              {/* BOTTOM TERMINAL OUTPUT DRAWER */}
+              {(isRunning || terminalOutput) && (
+                <div style={{ background: '#05070f', borderTop: '1px solid rgba(255,255,255,0.08)', padding: '16px 24px', animation: 'fadeIn 0.2s ease' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', fontWeight: 800, color: '#10b981' }}>
+                      <Terminal size={14} color="#10b981" />
+                      <span>TERMINAL OUTPUT CONSOLE</span>
+                    </div>
+
+                    {terminalOutput && (
+                      <div style={{ display: 'flex', gap: '14px', fontSize: '0.75rem', fontWeight: 700 }}>
+                        <span style={{ color: '#10b981', background: 'rgba(16, 185, 129, 0.12)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(16, 185, 129, 0.25)' }}>Exit Code: 0</span>
+                        <span style={{ color: '#06b6d4', background: 'rgba(6, 182, 212, 0.12)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(6, 182, 212, 0.25)' }}>Runtime: 12ms</span>
+                        <span style={{ color: '#f59e0b', background: 'rgba(245, 158, 11, 0.12)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(245, 158, 11, 0.25)' }}>Memory: 2.4 MB</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div style={{ background: '#090d18', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', padding: '14px 18px', fontFamily: 'var(--font-mono)', fontSize: '0.83rem', color: '#e2e8f0', minHeight: '65px' }}>
+                    {isRunning ? (
+                      <div style={{ color: '#06b6d4', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <RefreshCw size={14} className="spin-icon" /> Compiling and executing main.cpp...
+                      </div>
+                    ) : (
+                      <pre style={{ margin: 0, whiteSpace: 'pre-wrap', color: '#34d399', fontFamily: 'inherit' }}>
+                        {terminalOutput}
+                      </pre>
+                    )}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          </div>
+
+        </div>
+
+        {/* BOTTOM ROW: Subtitle + Live Visitor Counter + CTAs + Trust Bar (Full Width across bottom) */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', marginTop: '10px' }}>
+          
+          <p className="hero-subtitle" style={{ maxWidth: '900px', fontSize: '1.05rem', margin: 0 }}>
             The #1 Platform to Master DSA Sheets (502+ Questions), 28 System Design Chapters (HLD & LLD), Company-Wise Target Sheets (Google, Amazon, Meta), Interactive Pointer Visualizers & LeetCode Streak Sync.
           </p>
 
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '6px 14px', borderRadius: '20px', color: '#10b981', fontSize: '0.84rem', fontWeight: 800, marginBottom: '20px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '6px 14px', borderRadius: '20px', color: '#10b981', fontSize: '0.84rem', fontWeight: 800, width: 'fit-content' }}>
             <Globe size={15} color="#10b981" />
             <span>100% Genuine Real Visitors: <strong style={{ color: '#fff' }}>{realCount}</strong> Total Visits</span>
           </div>
@@ -423,12 +565,7 @@ Target Companies: Google, Meta, Amazon, Microsoft
             </button>
           </div>
 
-          <div className="hero-trust-bar" style={{ 
-            marginTop: '32px', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            gap: '12px' 
-          }}>
+          <div className="hero-trust-bar" style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', marginTop: '10px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', fontSize: '0.88rem', color: '#cbd5e1', fontWeight: 600 }}>
               <div style={{ background: 'rgba(16, 185, 129, 0.15)', padding: '4px', borderRadius: '50%', display: 'flex', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
                 <CheckCircle2 size={15} color="#10b981" />
@@ -450,137 +587,7 @@ Target Companies: Google, Meta, Amazon, Microsoft
               <span><strong style={{ color: '#fff' }}>Visualize Your Code Execution</strong> with Live Animations & Pointer Tracing</span>
             </div>
           </div>
-        </div>
 
-        {/* FULL-WIDTH LEETCODE STYLE HERO IDE COMPILER (NO RIGHT SIDEBAR) */}
-        <div className="hero-visual">
-          <div className="ide-mockup-wrapper glass-panel" style={{ borderRadius: '20px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.15)', boxShadow: '0 25px 60px rgba(0,0,0,0.85)' }}>
-            
-            {/* Top IDE Header Bar */}
-            <div style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              justify: 'space-between', 
-              padding: '14px 24px', 
-              background: 'linear-gradient(90deg, #10141e, #0c0f17)', 
-              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-              gap: '16px',
-              flexWrap: 'nowrap'
-            }}>
-              
-              {/* Left: Authentic macOS Window Controls & File Tab */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                
-                {/* Authentic macOS Window Dots */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f56', boxShadow: '0 0 8px rgba(255, 95, 86, 0.5)' }} />
-                  <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e', boxShadow: '0 0 8px rgba(255, 189, 46, 0.5)' }} />
-                  <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#27c93f', boxShadow: '0 0 8px rgba(39, 201, 63, 0.5)' }} />
-                </div>
-
-                {/* File Tab Pill */}
-                <div style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: '8px', 
-                  padding: '6px 16px', 
-                  background: 'rgba(6, 182, 212, 0.12)', 
-                  borderRadius: '10px', 
-                  border: '1px solid rgba(6, 182, 212, 0.3)' 
-                }}>
-                  <Code2 size={15} color="#06b6d4" />
-                  <span style={{ fontSize: '0.88rem', color: '#fff', fontWeight: 800, fontFamily: 'var(--font-mono)' }}>main.cpp</span>
-                  <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#10b981', boxShadow: '0 0 6px #10b981' }} />
-                </div>
-
-              </div>
-
-              {/* Right: READY Badge & Run Code Button */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#10b981', background: 'rgba(16, 185, 129, 0.15)', padding: '5px 14px', borderRadius: '6px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
-                  C++ 20 (GCC)
-                </span>
-
-                <button 
-                  onClick={handleRunCode}
-                  disabled={isRunning}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justify: 'center',
-                    background: 'linear-gradient(90deg, #10b981, #06b6d4)',
-                    color: '#000',
-                    padding: '8px 24px',
-                    borderRadius: '8px',
-                    fontWeight: 900,
-                    fontSize: '0.88rem',
-                    border: 'none',
-                    cursor: 'pointer',
-                    boxShadow: '0 4px 18px rgba(16, 185, 129, 0.45)',
-                    gap: '8px',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  {isRunning ? <RefreshCw size={15} className="spin-icon" color="#000" /> : <Play size={15} fill="#000" color="#000" />}
-                  <span>{isRunning ? 'Compiling...' : 'Run Code'}</span>
-                </button>
-              </div>
-
-            </div>
-
-            {/* FULL WIDTH CODE EDITOR PANE (LEETCODE DARK THEME & SYNTAX HIGHLIGHTING) */}
-            <div className="ide-code-pane" style={{ padding: '24px', background: '#090d16', minHeight: '290px', overflowY: 'auto', maxHeight: '340px' }} ref={editorScrollRef}>
-              <div style={{ display: 'flex', gap: '20px', fontFamily: 'var(--font-mono)', fontSize: '0.9rem', lineHeight: '1.7' }}>
-                
-                {/* Line Numbers */}
-                <div style={{ color: '#475569', textAlign: 'right', userSelect: 'none', display: 'flex', flexDirection: 'column', fontWeight: 600 }}>
-                  {codeLines.map((_, idx) => (
-                    <span key={idx}>{idx + 1}</span>
-                  ))}
-                </div>
-
-                {/* LeetCode Styled Colored Code */}
-                <div style={{ flex: 1, whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
-                  {renderLeetCodeColoredCode(userCode)}
-                  {isAutoTyping && <span className="typing-cursor" style={{ color: '#06b6d4', fontWeight: 800 }}>|</span>}
-                </div>
-
-              </div>
-            </div>
-
-            {/* BOTTOM TERMINAL OUTPUT DRAWER (APPEARS ONLY WHEN RUN CODE IS CLICKED) */}
-            {(isRunning || terminalOutput) && (
-              <div style={{ background: '#05070f', borderTop: '1px solid rgba(255,255,255,0.08)', padding: '16px 24px', animation: 'fadeIn 0.2s ease' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', fontWeight: 800, color: '#10b981' }}>
-                    <Terminal size={14} color="#10b981" />
-                    <span>TERMINAL OUTPUT CONSOLE</span>
-                  </div>
-
-                  {terminalOutput && (
-                    <div style={{ display: 'flex', gap: '14px', fontSize: '0.75rem', fontWeight: 700 }}>
-                      <span style={{ color: '#10b981', background: 'rgba(16, 185, 129, 0.12)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(16, 185, 129, 0.25)' }}>Exit Code: 0</span>
-                      <span style={{ color: '#06b6d4', background: 'rgba(6, 182, 212, 0.12)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(6, 182, 212, 0.25)' }}>Runtime: 12ms</span>
-                      <span style={{ color: '#f59e0b', background: 'rgba(245, 158, 11, 0.12)', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(245, 158, 11, 0.25)' }}>Memory: 2.4 MB</span>
-                    </div>
-                  )}
-                </div>
-
-                <div style={{ background: '#090d18', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', padding: '14px 18px', fontFamily: 'var(--font-mono)', fontSize: '0.83rem', color: '#e2e8f0', minHeight: '65px' }}>
-                  {isRunning ? (
-                    <div style={{ color: '#06b6d4', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <RefreshCw size={14} className="spin-icon" /> Compiling and executing main.cpp...
-                    </div>
-                  ) : (
-                    <pre style={{ margin: 0, whiteSpace: 'pre-wrap', color: '#34d399', fontFamily: 'inherit' }}>
-                      {terminalOutput}
-                    </pre>
-                  )}
-                </div>
-              </div>
-            )}
-
-          </div>
         </div>
 
       </section>
