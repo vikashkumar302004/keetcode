@@ -21,23 +21,18 @@ export default function Auth({ onLogin, onSuccess }) {
       const user = result.user
       handleLoginSuccess({
         uid: user.uid,
-        name: user.displayName || 'Google User',
+        name: user.displayName || 'Google Coder',
         email: user.email || '',
         photoURL: user.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.uid}`
       })
     } catch (err) {
-      console.error("Firebase Google Auth Error:", err)
-      if (err.code === 'auth/unauthorized-domain') {
-        // Try redirect method if popup domain is unauthorized
+      console.warn("Popup notice, switching to Google Redirect...", err)
+      if (err.code !== 'auth/popup-closed-by-user') {
         try {
           await signInWithRedirect(auth, googleProvider)
         } catch (redirErr) {
-          setError(`Domain Un-Authorized: Please add '${window.location.hostname}' to Firebase Console -> Authentication -> Settings -> Authorized Domains.`)
+          setError(`Google Login Error: Make sure you open https://keetcode-eight.vercel.app directly in your browser.`)
         }
-      } else if (err.code === 'auth/popup-blocked') {
-        setError("Popup was blocked by browser. Please allow popups for Google Login or click again.")
-      } else if (err.code !== 'auth/popup-closed-by-user') {
-        setError(err.message || "Failed to sign in with Google. Please try again.")
       }
     } finally {
       setLoading(false)

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Trophy, LogIn, LogOut, Code } from 'lucide-react'
 import { auth } from './utils/firebase'
-import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { onAuthStateChanged, signOut, getRedirectResult } from 'firebase/auth'
 import { fetchCloudProgress, getUserMeta, fetchAndSyncLeetCode } from './utils/progressSync'
 import Home from './components/Home'
 import Courses from './components/Courses'
@@ -50,6 +50,27 @@ export default function App() {
   })
   
   const [metaTrigger, setMetaTrigger] = useState(0)
+
+  // Catch Google Redirect Result when returning from Google Auth Redirect
+  useEffect(() => {
+    getRedirectResult(auth).then((result) => {
+      if (result && result.user) {
+        const u = result.user
+        const loggedInState = {
+          uid: u.uid,
+          name: u.displayName || 'Google User',
+          email: u.email || '',
+          photoURL: u.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${u.uid}`,
+          streak: 1,
+          solvedCount: 0,
+          points: 10,
+          isLoggedIn: true
+        }
+        setUser(loggedInState)
+        saveUserSession(loggedInState)
+      }
+    }).catch(err => console.error("Google Redirect Result error:", err))
+  }, [])
 
   // Background auto-sync LeetCode on app startup if leetcodeUsername exists
   useEffect(() => {
