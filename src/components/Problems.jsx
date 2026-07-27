@@ -573,11 +573,6 @@ export default function Problems({ user, navigateTo }) {
       key: 'dp',
       title: 'Dynamic Programming [1D, 2D, Grids, DP on Trees]',
       filterTopics: ['Dynamic Programming']
-    },
-    {
-      key: 'oops',
-      title: 'Object Oriented Programming (OOPS)',
-      filterTopics: ['OOPS']
     }
   ]
 

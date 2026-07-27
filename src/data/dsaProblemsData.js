@@ -1092,60 +1092,6 @@ export const dsaProblemsData = [
     "diffRating": 5.0
   },
   {
-    "id": 121,
-    "topic": "OOPS",
-    "subtopic": "OOPS Fundamentals",
-    "name": "Classes, Objects & Constructors",
-    "link": "https://leetcode.com",
-    "difficulty": "Easy",
-    "diffRating": 1.0
-  },
-  {
-    "id": 122,
-    "topic": "OOPS",
-    "subtopic": "OOPS Fundamentals",
-    "name": "Inheritance & Polymorphism",
-    "link": "https://leetcode.com",
-    "difficulty": "Easy",
-    "diffRating": 2.0
-  },
-  {
-    "id": 123,
-    "topic": "OOPS",
-    "subtopic": "OOPS Fundamentals",
-    "name": "Encapsulation & Abstraction",
-    "link": "https://leetcode.com",
-    "difficulty": "Easy",
-    "diffRating": 2.0
-  },
-  {
-    "id": 124,
-    "topic": "OOPS",
-    "subtopic": "OOPS Fundamentals",
-    "name": "Interfaces & Abstract Classes",
-    "link": "https://leetcode.com",
-    "difficulty": "Medium",
-    "diffRating": 3.0
-  },
-  {
-    "id": 125,
-    "topic": "OOPS",
-    "subtopic": "Design Patterns",
-    "name": "Singleton Pattern",
-    "link": "https://leetcode.com",
-    "difficulty": "Medium",
-    "diffRating": 3.0
-  },
-  {
-    "id": 126,
-    "topic": "OOPS",
-    "subtopic": "Design Patterns",
-    "name": "Factory Pattern",
-    "link": "https://leetcode.com",
-    "difficulty": "Hard",
-    "diffRating": 4.0
-  },
-  {
     "id": 127,
     "topic": "Linkedlist",
     "subtopic": "Foundation",

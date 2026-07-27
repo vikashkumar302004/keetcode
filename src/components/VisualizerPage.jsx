@@ -694,6 +694,27 @@ export default function VisualizerPage({ problem, onBack }) {
           </div>
         </div>
 
+        {/* 🚀 COMING SOON BANNER */}
+        <div style={{
+          background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.15))',
+          border: '1px solid rgba(6, 182, 212, 0.4)',
+          borderRadius: '16px',
+          padding: '20px 24px',
+          marginBottom: '20px',
+          textAlign: 'center',
+          boxShadow: '0 10px 30px rgba(6, 182, 212, 0.2)'
+        }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(6, 182, 212, 0.2)', padding: '4px 14px', borderRadius: '20px', color: '#06b6d4', fontSize: '0.82rem', fontWeight: 800, marginBottom: '8px' }}>
+            <Sparkles size={15} /> Live Algorithm Visualizer Engine
+          </div>
+          <h2 style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', margin: '4px 0 10px 0' }}>
+            🚀 Live Step-by-Step Pointer Animation for "{probName}"
+          </h2>
+          <div style={{ display: 'inline-block', background: 'linear-gradient(90deg, #f59e0b, #ec4899)', color: '#000', fontWeight: 900, fontSize: '0.95rem', padding: '6px 20px', borderRadius: '10px', boxShadow: '0 4px 15px rgba(245, 158, 11, 0.4)' }}>
+            Coming Soon in 2 Days! 🔥
+          </div>
+        </div>
+
         {/* 📌 PROBLEM STATEMENT & EXAMPLE HEADER CARD */}
         <div style={{ background: '#120f10', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '20px 24px', marginBottom: '16px' }}>
           <h1 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '0 0 8px 0' }}>

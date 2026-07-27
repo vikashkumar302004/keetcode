@@ -368,11 +368,6 @@ Target Companies: Google, Meta, Amazon, Microsoft
             The #1 Platform to Master DSA Sheets (502+ Questions), 28 System Design Chapters (HLD & LLD), Company-Wise Target Sheets (Google, Amazon, Meta), Interactive Pointer Visualizers & LeetCode Streak Sync.
           </p>
 
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '6px 14px', borderRadius: '20px', color: '#10b981', fontSize: '0.84rem', fontWeight: 800, marginBottom: '20px' }}>
-            <Globe size={15} color="#10b981" />
-            <span>100% Genuine Real Visitors: <strong style={{ color: '#fff' }}>{realCount}</strong> Total Visits</span>
-          </div>
-
           <div className="hero-actions" style={{ gap: '16px', flexWrap: 'wrap' }}>
             <button 
               className="btn btn-primary glow-primary" 

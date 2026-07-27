@@ -36,11 +36,6 @@ export default function Footer({ navigateTo }) {
               The premier interactive platform for Master DSA Preparation & System Design Notes (HLD & LLD).
             </p>
 
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(6, 182, 212, 0.12)', border: '1px solid rgba(6, 182, 212, 0.3)', padding: '5px 12px', borderRadius: '14px', color: '#06b6d4', fontSize: '0.78rem', fontWeight: 800, marginBottom: '20px' }}>
-              <Globe size={13} color="#06b6d4" />
-              <span>Real Live Visitors: <strong style={{ color: '#fff' }}>{realCount}</strong></span>
-            </div>
-
             {/* Social Links: LinkedIn & Email */}
             <div className="social-links flex-center" style={{ gap: '12px', justifyContent: 'flex-start' }}>
               <a 
