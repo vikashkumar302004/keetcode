@@ -12,15 +12,17 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
   const [messages, setMessages] = useState([initialGreeting])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
-  const messagesEndRef = useRef(null)
+  const chatContainerRef = useRef(null)
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+    }
   }
 
   useEffect(() => {
     if (isOpen) {
-      scrollToBottom()
+      setTimeout(scrollToBottom, 50)
     }
   }, [messages, isOpen])
 
@@ -199,15 +201,18 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
       </div>
 
       {/* Chat Messages Area */}
-      <div style={{
-        flex: 1,
-        padding: '16px',
-        overflowY: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '14px',
-        background: '#04060d'
-      }}>
+      <div 
+        ref={chatContainerRef}
+        style={{
+          flex: 1,
+          padding: '16px',
+          overflowY: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '14px',
+          background: '#04060d'
+        }}
+      >
         {messages.map((m, idx) => (
           <div key={idx} style={{
             display: 'flex',
@@ -256,8 +261,6 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
             </div>
           </div>
         )}
-
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Quick Suggestion Action Chips */}
