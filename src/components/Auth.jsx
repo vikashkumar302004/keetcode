@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
-import { ShieldCheck } from 'lucide-react'
+import { ShieldCheck, AlertCircle, RefreshCw } from 'lucide-react'
 import { auth, googleProvider } from '../utils/firebase'
-import { signInWithPopup } from 'firebase/auth'
+import { signInWithPopup, signInWithRedirect } from 'firebase/auth'
 
 export default function Auth({ onLogin, onSuccess }) {
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleLoginSuccess = (userData) => {
     if (typeof onLogin === 'function') onLogin(userData)
     if (typeof onSuccess === 'function') onSuccess(userData)
   }
 
-  // Seamless 100% Reliable Google Login (Works on any Vercel domain, mobile & localhost)
+  // 100% REAL Google OAuth Login (Firebase Official Google Provider)
   const handleGoogleLogin = async () => {
     setLoading(true)
+    setError('')
     try {
       const result = await signInWithPopup(auth, googleProvider)
       const user = result.user
@@ -24,14 +26,19 @@ export default function Auth({ onLogin, onSuccess }) {
         photoURL: user.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.uid}`
       })
     } catch (err) {
-      console.warn("Firebase OAuth Fallback Active:", err)
-      // Instant Seamless Google Auth Fallback (No Error Boxes, No Blockers!)
-      handleLoginSuccess({
-        uid: 'google_user_' + Date.now(),
-        name: 'Google User',
-        email: 'user@google.com',
-        photoURL: 'https://api.dicebear.com/7.x/avataaars/svg?seed=GoogleUser'
-      })
+      console.error("Firebase Google Auth Error:", err)
+      if (err.code === 'auth/unauthorized-domain') {
+        // Try redirect method if popup domain is unauthorized
+        try {
+          await signInWithRedirect(auth, googleProvider)
+        } catch (redirErr) {
+          setError(`Domain Un-Authorized: Please add '${window.location.hostname}' to Firebase Console -> Authentication -> Settings -> Authorized Domains.`)
+        }
+      } else if (err.code === 'auth/popup-blocked') {
+        setError("Popup was blocked by browser. Please allow popups for Google Login or click again.")
+      } else if (err.code !== 'auth/popup-closed-by-user') {
+        setError(err.message || "Failed to sign in with Google. Please try again.")
+      }
     } finally {
       setLoading(false)
     }
@@ -47,8 +54,27 @@ export default function Auth({ onLogin, onSuccess }) {
           </div>
 
           <h2 style={{ fontSize: '2rem', fontWeight: 900, color: '#fff', marginBottom: '8px', letterSpacing: '-0.5px' }}>Welcome to KeetCode</h2>
-          <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: 1.5 }}>Sign in with your Google account to sync your streak & saved progress</p>
+          <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: 1.5 }}>Sign in with your real Google account to sync your streak & saved progress</p>
         </div>
+
+        {error && (
+          <div style={{
+            background: 'rgba(244, 63, 94, 0.1)',
+            border: '1px solid rgba(244, 63, 94, 0.3)',
+            borderRadius: '10px',
+            padding: '12px 14px',
+            fontSize: '0.85rem',
+            color: '#f43f5e',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            marginBottom: '20px',
+            textAlign: 'left'
+          }}>
+            <AlertCircle size={18} style={{ flexShrink: 0 }} />
+            <span>{error}</span>
+          </div>
+        )}
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <button 
@@ -74,12 +100,16 @@ export default function Auth({ onLogin, onSuccess }) {
               boxShadow: '0 8px 25px rgba(0,0,0,0.5)'
             }}
           >
-            <img 
-              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" 
-              alt="Google logo" 
-              style={{ width: '24px', height: '24px' }}
-            />
-            {loading ? 'Signing in with Google...' : 'Continue with Google'}
+            {loading ? (
+              <RefreshCw size={22} color="#06b6d4" className="animate-spin" />
+            ) : (
+              <img 
+                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" 
+                alt="Google logo" 
+                style={{ width: '24px', height: '24px' }}
+              />
+            )}
+            {loading ? 'Connecting to Google...' : 'Continue with Google'}
           </button>
         </div>
 
