@@ -1,7 +1,7 @@
 // Google Analytics (GA4) Event & Pageview Tracker Utility
 
 export const initGA = () => {
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-KEETCODE2026';
+  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-QXX0K4814Q';
   if (window.gtag) return;
 
   const script1 = document.createElement('script');
@@ -21,7 +21,7 @@ export const initGA = () => {
 
 export const trackPageView = (path, title) => {
   if (window.gtag) {
-    const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-KEETCODE2026';
+    const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-QXX0K4814Q';
     window.gtag('event', 'page_view', {
       page_path: path,
       page_title: title,
