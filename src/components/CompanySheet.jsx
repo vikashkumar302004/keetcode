@@ -12,29 +12,26 @@ export default function CompanySheet({ user, navigateTo, initialCompany }) {
 
   useEffect(() => {
     if (initialCompany) {
-      const isLoggedIn = user?.isLoggedIn || !!auth.currentUser
-      const match = companyProblemsData.find(c => 
-        c.name.toLowerCase() === initialCompany.toLowerCase() || 
-        c.id.toLowerCase() === initialCompany.toLowerCase()
-      )
-      if (match) {
-        if (!isLoggedIn) {
-          setLoginPromptCompany(match.name)
-        } else {
+      const compStr = typeof initialCompany === 'string' 
+        ? initialCompany 
+        : (initialCompany?.name || initialCompany?.id || '')
+      
+      if (compStr) {
+        const target = String(compStr).toLowerCase().trim()
+        const match = companyProblemsData.find(c => 
+          (c.name && String(c.name).toLowerCase().trim() === target) || 
+          (c.id && String(c.id).toLowerCase().trim() === target)
+        )
+        if (match) {
           setSelectedCompany(match)
         }
       }
     }
-  }, [initialCompany, user])
+  }, [initialCompany])
 
   const handleCompanyClick = (company) => {
-    const isLoggedIn = user?.isLoggedIn || !!auth.currentUser
-    if (!isLoggedIn) {
-      setLoginPromptCompany(company.name)
-    } else {
-      setSelectedCompany(company)
-      window.scrollTo(0, 0)
-    }
+    setSelectedCompany(company)
+    window.scrollTo(0, 0)
   }
 
   const [revisionProblemIds, setRevisionProblemIds] = useState([])
@@ -68,7 +65,7 @@ export default function CompanySheet({ user, navigateTo, initialCompany }) {
   const [inlineNoteInput, setInlineNoteInput] = useState('')
 
   const filteredCompanies = companyProblemsData.filter(c => 
-    c.name.toLowerCase().includes(searchQuery.toLowerCase())
+    c.name && String(c.name).toLowerCase().includes(String(searchQuery || '').toLowerCase())
   )
 
   const handleBack = () => {
