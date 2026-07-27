@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Build Output
+dist/
+dist-ssr/
+*.local
+
+# Excel Files & Heavy Raw Assets (EXPLICIT USER INSTRUCTION)
+*.xlsx
+*.xls
+*.csv
+DSA Master Sheet (1).xlsx
+
+# Temporary images & scratch files
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+# Environment & Secret Files
+.env
+.env.local
+.env.*.local
+
+# IDE & OS Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
