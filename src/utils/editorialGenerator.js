@@ -11,6 +11,7 @@ import { mathEditorials } from './editorials/mathEditorials.js'
 import { sortingEditorials } from './editorials/sortingEditorials.js'
 import { bsEditorials } from './editorials/bsEditorials.js'
 import { stringEditorials } from './editorials/stringEditorials.js'
+import { hashmapEditorials } from './editorials/hashmapEditorials.js'
 
 // Combine all editorial mappings into a single master dictionary by ID
 const allEditorials = {
@@ -24,7 +25,8 @@ const allEditorials = {
   ...mathEditorials,
   ...sortingEditorials,
   ...bsEditorials,
-  ...stringEditorials
+  ...stringEditorials,
+  ...hashmapEditorials
 }
 
 export function getEditorialForProblem(prob) {
