@@ -11,18 +11,42 @@ import Profile from './components/Profile'
 import Auth from './components/Auth'
 import Footer from './components/Footer'
 
+const getSavedUserSession = () => {
+  try {
+    const saved = localStorage.getItem('keetcode_user_session')
+    return saved ? JSON.parse(saved) : null
+  } catch (e) {
+    return null
+  }
+}
+
+const saveUserSession = (userData) => {
+  try {
+    if (userData && userData.isLoggedIn) {
+      localStorage.setItem('keetcode_user_session', JSON.stringify(userData))
+    } else {
+      localStorage.removeItem('keetcode_user_session')
+    }
+  } catch (e) {}
+}
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home')
   const [currentCompany, setCurrentCompany] = useState(null)
-  const [user, setUser] = useState({
-    uid: null,
-    name: 'Guest User',
-    email: '',
-    photoURL: '',
-    streak: 1,
-    solvedCount: 0,
-    points: 10,
-    isLoggedIn: false
+  
+  const [user, setUser] = useState(() => {
+    const saved = getSavedUserSession()
+    if (saved && saved.isLoggedIn) return saved
+    return {
+      uid: null,
+      name: 'Guest User',
+      email: '',
+      photoURL: '',
+      streak: 1,
+      solvedCount: 0,
+      points: 10,
+      isLoggedIn: false
+    }
   })
   
   const [metaTrigger, setMetaTrigger] = useState(0)
@@ -43,32 +67,39 @@ export default function App() {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       try {
         if (firebaseUser) {
-          setUser({
+          const loggedInState = {
             uid: firebaseUser.uid,
-            name: firebaseUser.displayName || 'User',
-            email: firebaseUser.email,
-            photoURL: firebaseUser.photoURL,
+            name: firebaseUser.displayName || 'Google Coder',
+            email: firebaseUser.email || '',
+            photoURL: firebaseUser.photoURL || `https://api.dicebear.com/7.x/avataaars/svg?seed=${firebaseUser.uid}`,
             streak: 1, 
             solvedCount: 0, 
             points: 10,
             isLoggedIn: true
-          })
+          }
+          setUser(loggedInState)
+          saveUserSession(loggedInState)
           
           await Promise.race([
             fetchCloudProgress(firebaseUser.uid),
             new Promise(resolve => setTimeout(resolve, 3000))
           ])
         } else {
-          setUser({
-            uid: null,
-            name: 'Guest User',
-            email: '',
-            photoURL: '',
-            streak: 0,
-            solvedCount: 0,
-            points: 0,
-            isLoggedIn: false
-          })
+          const localSession = getSavedUserSession()
+          if (localSession && localSession.isLoggedIn) {
+            setUser(localSession)
+          } else {
+            setUser({
+              uid: null,
+              name: 'Guest User',
+              email: '',
+              photoURL: '',
+              streak: 0,
+              solvedCount: 0,
+              points: 0,
+              isLoggedIn: false
+            })
+          }
           window.dispatchEvent(new Event('progress-sync-updated'));
         }
       } catch (e) {
@@ -92,13 +123,39 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const handleLogin = (userData) => {
+    const loggedUser = {
+      uid: userData?.uid || 'user_' + Date.now(),
+      name: userData?.name || 'Google Coder',
+      email: userData?.email || 'user@google.com',
+      photoURL: userData?.photoURL || 'https://api.dicebear.com/7.x/avataaars/svg?seed=GoogleUser',
+      streak: 1,
+      solvedCount: 0,
+      points: 10,
+      isLoggedIn: true
+    }
+    setUser(loggedUser)
+    saveUserSession(loggedUser)
+    navigateTo('profile')
+  }
+
   const handleLogout = async () => {
     try {
-      await signOut(auth)
-      navigateTo('home')
-    } catch (e) {
-      console.error('Logout error:', e)
+      await signOut(auth).catch(() => null)
+    } catch (e) {}
+    const guestState = {
+      uid: null,
+      name: 'Guest User',
+      email: '',
+      photoURL: '',
+      streak: 0,
+      solvedCount: 0,
+      points: 0,
+      isLoggedIn: false
     }
+    setUser(guestState)
+    saveUserSession(null)
+    navigateTo('home')
   }
 
   return (
@@ -145,16 +202,14 @@ export default function App() {
                   Company Sheet
                 </span>
               </li>
-              {user.isLoggedIn && (
-                <li>
-                  <span 
-                    className={`nav-link ${currentPage === 'profile' ? 'active' : ''}`}
-                    onClick={() => navigateTo('profile')}
-                  >
-                    Profile
-                  </span>
-                </li>
-              )}
+              <li>
+                <span 
+                  className={`nav-link ${currentPage === 'profile' ? 'active' : ''}`}
+                  onClick={() => navigateTo('profile')}
+                >
+                  Profile
+                </span>
+              </li>
             </ul>
           </nav>
 
@@ -199,8 +254,14 @@ export default function App() {
         {currentPage === 'courses' && <Courses navigateTo={navigateTo} onNavigate={navigateTo} />}
         {currentPage === 'problems' && <Problems user={user} navigateTo={navigateTo} />}
         {currentPage === 'companies' && <CompanySheet user={user} navigateTo={navigateTo} initialCompany={currentCompany} />}
-        {currentPage === 'profile' && <Profile user={user} onUpdateUser={(updated) => setUser(prev => ({ ...prev, ...updated }))} />}
-        {currentPage === 'auth' && <Auth onSuccess={() => navigateTo('profile')} />}
+        {currentPage === 'profile' && <Profile user={user} onUpdateUser={(updated) => {
+          setUser(prev => {
+            const newU = { ...prev, ...updated }
+            saveUserSession(newU)
+            return newU
+          })
+        }} />}
+        {currentPage === 'auth' && <Auth onLogin={handleLogin} onSuccess={() => navigateTo('profile')} />}
       </main>
 
       <Footer navigateTo={navigateTo} onNavigate={navigateTo} />
