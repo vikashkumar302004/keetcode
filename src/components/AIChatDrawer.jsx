@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react'
+import ReactDOM from 'react-dom'
 import { Sparkles, Send, X, Bot, User, RefreshCw, Plus, Lightbulb, MessageSquare, Code, Cpu } from 'lucide-react'
 import { askGroqAI } from '../utils/groqAI'
 
 export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title = 'KeetAI Assistant' }) {
   const initialGreeting = {
     role: 'assistant',
-    content: `👋 **Namaste! I am KeetAI** - your C++ DSA & System Design AI Tutor.\n\nI have **100% Page Awareness** for **"${title}"**.\n\nAap mujhse **Hinglish** ya **English** me kuch bhi pooch sakte hain! Click **"Analyze Page"** ya niche di gayi tabs choose karein!`
+    content: `👋 **Namaste! I am KeetAI** - your C++ DSA & System Design AI Tutor.\n\nI have **100% Page Awareness** for **"${title}"**.\n\nAap mujhse **Hinglish** ya **English** me koi bhi doubt pooch sakte hain! Click **"Analyze Page"** ya neeche di gayi quick tabs choose karein!`
   }
 
   const [messages, setMessages] = useState([initialGreeting])
@@ -66,25 +67,26 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
   const handleAnalyzePage = () => {
     handleSend(`Bhai is page ("${title}") ko deeply analyze karo aur Hinglish me:
 1. Core Intuition & Real-world Example do.
-2. An ASCII Flowchart / Diagram banao.
-3. Optimal Time & Space Complexity explain karo.`)
+2. Ek Clean ASCII Flowchart / Diagram banao.
+3. Step-by-step C++ Code Walkthrough & Complexity explain karo.`)
   }
 
   if (!isOpen) return null
 
-  return (
+  // Wrap in ReactDOM.createPortal so drawer is fixed to document.body viewport
+  return ReactDOM.createPortal(
     <div style={{
       position: 'fixed',
       top: 0,
       right: 0,
       bottom: 0,
-      width: '450px',
+      width: '460px',
       maxWidth: '100vw',
       height: '100vh',
       background: '#070912',
       borderLeft: '1px solid rgba(6, 182, 212, 0.3)',
-      boxShadow: '-10px 0 50px rgba(0,0,0,0.9)',
-      zIndex: 999999,
+      boxShadow: '-10px 0 50px rgba(0,0,0,0.95)',
+      zIndex: 9999999,
       display: 'flex',
       flexDirection: 'column',
       fontFamily: 'inherit',
@@ -237,8 +239,7 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
               fontSize: '0.88rem',
               lineHeight: 1.65,
               whiteSpace: 'pre-wrap',
-              wordBreak: 'break-word',
-              fontFamily: m.content.includes('```') || m.content.includes('[') ? 'inherit' : 'inherit'
+              wordBreak: 'break-word'
             }}>
               {m.content}
             </div>
@@ -251,7 +252,7 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
               <RefreshCw size={14} color="#06b6d4" className="animate-spin" />
             </div>
             <div style={{ background: '#0d101f', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '10px 14px', borderRadius: '2px 14px 14px 14px', color: '#06b6d4', fontSize: '0.85rem', fontWeight: 700 }}>
-              KeetAI is analyzing & generating response...
+              KeetAI is thinking & formatting answer...
             </div>
           </div>
         )}
@@ -336,6 +337,7 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
         </button>
       </form>
 
-    </div>
+    </div>,
+    document.body
   )
 }
