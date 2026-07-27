@@ -354,7 +354,7 @@ Target Companies: Google, Meta, Amazon, Microsoft
     <div className="home-page animate-fade">
 
       {/* Hero Section */}
-      <section className="container hero-section" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', alignItems: 'flex-start', paddingTop: '10px' }}>
+      <section className="container hero-section" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', alignItems: 'center', paddingTop: '10px' }}>
         <div className="hero-content">
           <div className="hero-badge">
             <Flame size={14} color="#f59e0b" fill="#f59e0b" />

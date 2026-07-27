@@ -1,7 +1,60 @@
 import React, { useState, useRef, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { Sparkles, Send, X, Bot, User, RefreshCw, Plus, Lightbulb, MessageSquare, Code, Cpu } from 'lucide-react'
+import { Sparkles, Send, X, Bot, User, RefreshCw, Plus, Lightbulb, MessageSquare, Code, Cpu, Copy, Check } from 'lucide-react'
 import { askGroqAI } from '../utils/groqAI'
+
+function FormattedMessageContent({ text }) {
+  const [copiedIdx, setCopiedIdx] = useState(null)
+
+  const parts = text.split(/(```[\s\S]*?```)/g)
+
+  const handleCopy = (codeStr, idx) => {
+    navigator.clipboard.writeText(codeStr.trim())
+    setCopiedIdx(idx)
+    setTimeout(() => setCopiedIdx(null), 2000)
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      {parts.map((part, idx) => {
+        if (part.startsWith('```') && part.endsWith('```')) {
+          const firstLineEnd = part.indexOf('\n')
+          let lang = 'cpp'
+          let code = part.slice(3, -3)
+
+          if (firstLineEnd !== -1) {
+            lang = part.slice(3, firstLineEnd).trim() || 'cpp'
+            code = part.slice(firstLineEnd + 1, -3)
+          }
+
+          return (
+            <div key={idx} style={{ margin: '8px 0', borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(6, 182, 212, 0.3)', background: '#080c18', boxShadow: '0 4px 15px rgba(0,0,0,0.6)' }}>
+              <div style={{ padding: '6px 12px', background: '#0e1428', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                <span style={{ fontSize: '0.72rem', fontWeight: 900, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{lang}</span>
+                <button
+                  onClick={() => handleCopy(code, idx)}
+                  style={{ background: 'rgba(6, 182, 212, 0.15)', border: '1px solid rgba(6, 182, 212, 0.3)', color: copiedIdx === idx ? '#10b981' : '#06b6d4', fontSize: '0.72rem', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: '3px 8px', borderRadius: '5px' }}
+                >
+                  {copiedIdx === idx ? <Check size={12} /> : <Copy size={12} />}
+                  <span>{copiedIdx === idx ? 'Copied!' : 'Copy Code'}</span>
+                </button>
+              </div>
+              <pre style={{ margin: 0, padding: '12px 14px', fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: '#38bdf8', overflowX: 'auto', lineHeight: 1.5, background: '#040711' }}>
+                {code.trim()}
+              </pre>
+            </div>
+          )
+        }
+
+        return (
+          <div key={idx} style={{ whiteSpace: 'pre-wrap', lineHeight: 1.65 }}>
+            {part}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
 
 export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title = 'KeetAI Assistant' }) {
   const initialGreeting = {
@@ -246,7 +299,7 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
               whiteSpace: 'pre-wrap',
               wordBreak: 'break-word'
             }}>
-              {m.content}
+              <FormattedMessageContent text={m.content} />
             </div>
           </div>
         ))}

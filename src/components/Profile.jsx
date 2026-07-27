@@ -6,7 +6,7 @@ import {
 } from 'lucide-react'
 import { 
   getSyncedProblems, normalizeProblemLink, getUserMeta, saveUserMeta, 
-  resetCurrentUserData, saveSyncedProblems, fetchAndSyncLeetCode 
+  resetCurrentUserData, saveSyncedProblems, fetchAndSyncLeetCode, fetchAndSyncGFG 
 } from '../utils/progressSync'
 import { dsaProblemsData } from '../data/dsaProblemsData.js'
 import { companyProblemsData } from '../data/companyProblemsData.js'
@@ -30,6 +30,12 @@ export default function Profile({ user, onUpdateUser }) {
   const [showLeetCodeInput, setShowLeetCodeInput] = useState(false)
   const [lcInput, setLcInput] = useState('')
   const [isFetchingLC, setIsFetchingLC] = useState(false)
+
+  // GeeksforGeeks Sync State
+  const [showGfgInput, setShowGfgInput] = useState(false)
+  const [gfgInput, setGfgInput] = useState('')
+  const [isFetchingGFG, setIsFetchingGFG] = useState(false)
+
   const [syncMessage, setSyncMessage] = useState(null)
 
   // Initial Data Fetching
@@ -85,6 +91,28 @@ export default function Profile({ user, onUpdateUser }) {
       }
     } finally {
       setIsFetchingLC(false)
+    }
+  }
+
+  const handleFetchGFG = async (username, silent = false) => {
+    if (!username) return
+    setIsFetchingGFG(true)
+    if (!silent) setSyncMessage(null)
+    try {
+      const result = await fetchAndSyncGFG(username)
+      if (!silent) {
+        if (result.success) {
+          setSyncMessage({ type: 'success', text: result.message })
+          setShowGfgInput(false)
+        } else {
+          setSyncMessage({ type: 'error', text: result.error || 'Failed to fetch GFG stats.' })
+        }
+      }
+    } catch (e) {
+      console.error(e)
+      if (!silent) setSyncMessage({ type: 'error', text: 'Network error connecting to GeeksforGeeks.' })
+    } finally {
+      setIsFetchingGFG(false)
     }
   }
 
@@ -469,31 +497,89 @@ export default function Profile({ user, onUpdateUser }) {
                 </button>
               </div>
             )}
+          </div>
 
-            {syncMessage && (
-              <div style={{
-                fontSize: '0.78rem',
-                padding: '8px 10px',
-                borderRadius: '6px',
-                marginTop: '10px',
-                background: syncMessage.type === 'success' ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)',
-                color: syncMessage.type === 'success' ? '#10b981' : '#f87171',
-                border: `1px solid ${syncMessage.type === 'success' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`
-              }}>
-                {syncMessage.text}
+          {/* GeeksforGeeks (GFG) Card */}
+          <div style={{ background: 'rgba(47, 158, 68, 0.05)', border: '1px solid rgba(47, 158, 68, 0.25)', borderRadius: '12px', padding: '12px 14px', marginBottom: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '6px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0, overflow: 'hidden' }}>
+                <Award size={16} color="#2f9e44" style={{ flexShrink: 0 }} />
+                <span style={{ fontWeight: 800, color: '#fff', fontSize: '0.88rem' }}>GeeksforGeeks</span>
+                {userMeta.gfgUsername && (
+                  <span style={{ fontSize: '0.75rem', color: '#94a3b8', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '85px' }} title={`@${userMeta.gfgUsername}`}>
+                    (@{userMeta.gfgUsername})
+                  </span>
+                )}
+              </div>
+
+              {userMeta.gfgUsername ? (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
+                  <Check size={15} color="#10b981" />
+                  <button 
+                    onClick={() => handleFetchGFG(userMeta.gfgUsername)} 
+                    style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#94a3b8', display: 'flex', alignItems: 'center', padding: '2px' }} 
+                    title="Sync GFG Stats"
+                  >
+                    <RefreshCw size={13} className={isFetchingGFG ? "spin-anim" : ""} />
+                  </button>
+                  <button 
+                    onClick={() => setShowGfgInput(!showGfgInput)} 
+                    style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', padding: '2px 6px', cursor: 'pointer', color: '#cbd5e1', fontSize: '0.72rem' }}
+                  >
+                    Edit
+                  </button>
+                </div>
+              ) : (
+                <button 
+                  onClick={() => setShowGfgInput(!showGfgInput)}
+                  style={{ background: 'rgba(47, 158, 68, 0.15)', color: '#2f9e44', border: '1px solid rgba(47, 158, 68, 0.3)', padding: '3px 10px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.78rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '4px' }}
+                >
+                  <Plus size={13} /> Link GFG Profile
+                </button>
+              )}
+            </div>
+
+            {showGfgInput && (
+              <div style={{ display: 'flex', gap: '6px', marginTop: '10px', animation: 'fadeIn 0.2s' }}>
+                <input 
+                  type="text" 
+                  placeholder="Paste GFG profile URL or username" 
+                  value={gfgInput}
+                  onChange={e => setGfgInput(e.target.value)}
+                  style={{ flex: 1, padding: '6px 10px', background: '#0a080a', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '6px', color: '#fff', fontSize: '0.78rem', outline: 'none' }}
+                />
+                <button 
+                  onClick={() => handleFetchGFG(gfgInput)}
+                  disabled={isFetchingGFG}
+                  style={{ background: '#2f9e44', color: '#fff', fontWeight: 800, border: 'none', padding: '6px 12px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.78rem' }}
+                >
+                  {isFetchingGFG ? '...' : 'Sync'}
+                </button>
+              </div>
+            )}
+
+            {userMeta.gfgStats && (
+              <div style={{ display: 'flex', gap: '12px', marginTop: '10px', fontSize: '0.78rem', color: '#cbd5e1', paddingTop: '8px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                <span>Solved: <strong style={{ color: '#2f9e44' }}>{userMeta.gfgStats.totalSolved}</strong></span>
+                <span>Score: <strong style={{ color: '#f59e0b' }}>{userMeta.gfgStats.codingScore}</strong></span>
+                <span>Streak: <strong style={{ color: '#06b6d4' }}>{userMeta.gfgStats.streak}d</strong></span>
               </div>
             )}
           </div>
 
-          {/* GFG Badge */}
-          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '12px', padding: '12px 14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', fontWeight: 700, color: '#fff' }}>
-              <BookOpen size={16} color="#10b981" /> GeeksForGeeks
-            </span>
-            <span style={{ fontSize: '0.75rem', color: '#10b981', background: 'rgba(16,185,129,0.1)', padding: '2px 8px', borderRadius: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <Check size={12} /> Connected
-            </span>
-          </div>
+          {syncMessage && (
+            <div style={{
+              fontSize: '0.78rem',
+              padding: '8px 10px',
+              borderRadius: '6px',
+              marginTop: '10px',
+              background: syncMessage.type === 'success' ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)',
+              color: syncMessage.type === 'success' ? '#10b981' : '#f87171',
+              border: `1px solid ${syncMessage.type === 'success' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`
+            }}>
+              {syncMessage.text}
+            </div>
+          )}
 
         </div>
 
