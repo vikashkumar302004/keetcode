@@ -2254,3 +2254,6 @@ export function trap(height) {
 
 // Update #354 on lengthOfLIS: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 25d0f5
+
+// Update #355 on countSetBits: Add JSDoc annotations detailing time and space complexity.
+// Checksum: acae83
