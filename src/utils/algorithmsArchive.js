@@ -2260,3 +2260,6 @@ export function trap(height) {
 
 // Update #356 on MinHeap: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 96a9e4
+
+// Update #357 on Trie: Add JSDoc annotations detailing time and space complexity.
+// Checksum: 097c80
