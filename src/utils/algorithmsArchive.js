@@ -2251,3 +2251,6 @@ export function trap(height) {
 
 // Update #353 on lowestCommonAncestor: Add JSDoc annotations detailing time and space complexity.
 // Checksum: 6ac529
+
+// Update #354 on lengthOfLIS: Add JSDoc annotations detailing time and space complexity.
+// Checksum: 25d0f5
