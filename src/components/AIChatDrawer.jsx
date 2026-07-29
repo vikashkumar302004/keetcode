@@ -359,6 +359,7 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
       >
         <input
           type="text"
+          aria-label="Message KeetAI"
           placeholder="Type in Hinglish or English..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
