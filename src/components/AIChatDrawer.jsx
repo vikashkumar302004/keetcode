@@ -208,6 +208,7 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
           </button>
 
           <button 
+            aria-label="Close AI chat"
             onClick={onClose}
             style={{ background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: '4px' }}
           >
