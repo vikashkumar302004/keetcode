@@ -2269,3 +2269,6 @@ export function trap(height) {
 
 // Update #359 on trapRainWater: Add JSDoc annotations detailing time and space complexity.
 // Checksum: f63f48
+
+// Update #360 on coinChange: Replace nested conditionals with early returns and guard clauses.
+// Checksum: adc252
