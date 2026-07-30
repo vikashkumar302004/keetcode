@@ -2266,3 +2266,6 @@ export function trap(height) {
 
 // Update #358 on debounceThrottle: Add JSDoc annotations detailing time and space complexity.
 // Checksum: ed15e4
+
+// Update #359 on trapRainWater: Add JSDoc annotations detailing time and space complexity.
+// Checksum: f63f48
