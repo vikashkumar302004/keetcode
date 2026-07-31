@@ -2287,3 +2287,6 @@ export function trap(height) {
 
 // Update #365 on quickSort3Way: Replace nested conditionals with early returns and guard clauses.
 // Checksum: 8ec453
+
+// Update #366 on morrisInorder: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 68cefe
