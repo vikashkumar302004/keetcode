@@ -2278,3 +2278,6 @@ export function trap(height) {
 
 // Update #362 on maxSubArray: Replace nested conditionals with early returns and guard clauses.
 // Checksum: 7ae5f2
+
+// Update #363 on binarySearch: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 39ed0e
