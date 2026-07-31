@@ -2296,3 +2296,6 @@ export function trap(height) {
 
 // Update #368 on knapsack01: Replace nested conditionals with early returns and guard clauses.
 // Checksum: 33368c
+
+// Update #369 on kmpSearch: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 06cb06
