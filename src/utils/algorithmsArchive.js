@@ -2299,3 +2299,6 @@ export function trap(height) {
 
 // Update #369 on kmpSearch: Replace nested conditionals with early returns and guard clauses.
 // Checksum: 06cb06
+
+// Update #370 on LRUCache: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 043785
