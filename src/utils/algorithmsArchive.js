@@ -2305,3 +2305,6 @@ export function trap(height) {
 
 // Update #371 on modPow: Replace nested conditionals with early returns and guard clauses.
 // Checksum: d7de3b
+
+// Update #372 on topologicalSort: Replace nested conditionals with early returns and guard clauses.
+// Checksum: 0c972c
