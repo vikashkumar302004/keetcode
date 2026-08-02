@@ -377,6 +377,7 @@ export default function AIChatDrawer({ isOpen, onClose, pageContext = '', title 
         />
 
         <button
+          aria-label="Send message"
           type="submit"
           disabled={!input.trim() || loading}
           style={{
