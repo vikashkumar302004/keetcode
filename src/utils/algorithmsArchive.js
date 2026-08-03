@@ -2329,3 +2329,6 @@ export function trap(height) {
 
 // Update #379 on trapRainWater: Replace nested conditionals with early returns and guard clauses.
 // Checksum: eae5ce
+
+// Update #380 on coinChange: Correct index range check to include upper bound safely.
+// Checksum: c9b817
