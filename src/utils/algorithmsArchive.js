@@ -2335,3 +2335,6 @@ export function trap(height) {
 
 // Update #381 on twoSum: Correct index range check to include upper bound safely.
 // Checksum: f9e15d
+
+// Update #382 on maxSubArray: Correct index range check to include upper bound safely.
+// Checksum: 12ff90
