@@ -2350,3 +2350,6 @@ export function trap(height) {
 
 // Update #386 on morrisInorder: Correct index range check to include upper bound safely.
 // Checksum: 241dd9
+
+// Update #387 on dijkstra: Correct index range check to include upper bound safely.
+// Checksum: 78957a
