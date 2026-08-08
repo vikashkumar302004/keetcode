@@ -330,6 +330,7 @@ export default function CompanySheet({ user, navigateTo, initialCompany }) {
 
                           <td style={{ padding: '12px 10px', textAlign: 'center' }}>
                             <button
+                              disabled
                               title="No editorial yet for company sheet problems"
                               style={{
                                 display: 'inline-flex',
