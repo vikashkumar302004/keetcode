@@ -125,6 +125,7 @@ export default function CompanySheet({ user, navigateTo, initialCompany }) {
                 <Search size={20} color="#94a3b8" style={{ marginRight: '12px' }} />
                 <input 
                   type="text" 
+                  aria-label="Search companies"
                   placeholder="Search company..." 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
