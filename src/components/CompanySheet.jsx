@@ -364,6 +364,8 @@ export default function CompanySheet({ user, navigateTo, initialCompany }) {
 
                           <td style={{ padding: '12px 10px', textAlign: 'center' }}>
                             <button
+                              aria-label={`Notes for ${prob.title}`}
+                              aria-expanded={isNoteExpanded}
                               onClick={() => toggleInlineNote(uniqueId)}
                               title={hasNote ? "View / Edit Note" : "Add Note"}
                               style={{
