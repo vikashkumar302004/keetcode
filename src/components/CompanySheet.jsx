@@ -381,6 +381,8 @@ export default function CompanySheet({ user, navigateTo, initialCompany }) {
 
                           <td style={{ padding: '12px 10px', textAlign: 'center' }}>
                             <button
+                              aria-label={`Revise ${prob.title}`}
+                              aria-pressed={isRevise}
                               onClick={() => toggleRevision(uniqueId)}
                               style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
                             >
