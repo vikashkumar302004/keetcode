@@ -2371,3 +2371,6 @@ export function trap(height) {
 
 // Update #393 on lowestCommonAncestor: Correct index range check to include upper bound safely.
 // Checksum: 45122c
+
+// Update #394 on lengthOfLIS: Correct index range check to include upper bound safely.
+// Checksum: df6675
