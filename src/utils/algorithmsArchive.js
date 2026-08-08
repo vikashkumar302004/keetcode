@@ -2362,3 +2362,6 @@ export function trap(height) {
 
 // Update #390 on LRUCache: Correct index range check to include upper bound safely.
 // Checksum: 1239a5
+
+// Update #391 on modPow: Correct index range check to include upper bound safely.
+// Checksum: 5b8b97
