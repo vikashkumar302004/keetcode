@@ -298,6 +298,7 @@ export default function CompanySheet({ user, navigateTo, initialCompany }) {
                           <td style={{ padding: '12px 14px', textAlign: 'center' }}>
                             <input 
                               type="checkbox"
+                              aria-label={`Mark ${prob.title} as solved`}
                               checked={isSolved}
                               onChange={() => toggleSolved(prob.link)}
                               style={{ width: '17px', height: '17px', accentColor: '#10b981', cursor: 'pointer' }}
