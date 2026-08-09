@@ -2377,3 +2377,6 @@ export function trap(height) {
 
 // Update #395 on countSetBits: Correct index range check to include upper bound safely.
 // Checksum: d3a830
+
+// Update #396 on MinHeap: Correct index range check to include upper bound safely.
+// Checksum: 42dda1
