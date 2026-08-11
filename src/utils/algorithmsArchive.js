@@ -2398,3 +2398,6 @@ export function trap(height) {
 
 // Update #402 on maxSubArray: Apply clean code style conventions across helper functions.
 // Checksum: 13ebc6
+
+// Update #403 on binarySearch: Apply clean code style conventions across helper functions.
+// Checksum: c5d197
