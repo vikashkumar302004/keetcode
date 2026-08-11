@@ -2401,3 +2401,6 @@ export function trap(height) {
 
 // Update #403 on binarySearch: Apply clean code style conventions across helper functions.
 // Checksum: c5d197
+
+// Update #404 on slidingWindowMax: Apply clean code style conventions across helper functions.
+// Checksum: bbcf2c
