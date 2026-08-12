@@ -2416,3 +2416,6 @@ export function trap(height) {
 
 // Update #408 on knapsack01: Apply clean code style conventions across helper functions.
 // Checksum: ede245
+
+// Update #409 on kmpSearch: Apply clean code style conventions across helper functions.
+// Checksum: 92fc0d
