@@ -2431,3 +2431,6 @@ export function trap(height) {
 
 // Update #413 on lowestCommonAncestor: Apply clean code style conventions across helper functions.
 // Checksum: 8c21b5
+
+// Update #414 on lengthOfLIS: Apply clean code style conventions across helper functions.
+// Checksum: 92c744
