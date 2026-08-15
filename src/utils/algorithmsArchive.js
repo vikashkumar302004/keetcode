@@ -2437,3 +2437,6 @@ export function trap(height) {
 
 // Update #415 on countSetBits: Apply clean code style conventions across helper functions.
 // Checksum: b69fae
+
+// Update #416 on MinHeap: Apply clean code style conventions across helper functions.
+// Checksum: 50e395
