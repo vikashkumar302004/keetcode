@@ -1113,6 +1113,7 @@ export default function Problems({ user, navigateTo }) {
               <Search size={16} color="#94a3b8" style={{ marginRight: '6px' }} />
               <input 
                 type="text" 
+                aria-label="Search problems"
                 placeholder="Search problems..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
