@@ -433,6 +433,7 @@ export default function CompanySheet({ user, navigateTo, initialCompany }) {
                                       {/* Dynamic Height Textarea */}
                                       <textarea
                                         rows={maximizedNoteProblemId === uniqueId ? 14 : 5}
+                                        aria-label={`Study notes for ${prob.title}`}
                                         placeholder="Write detailed intuition, edge cases, space/time complexity tricks, or personal code notes for this problem..."
                                         value={inlineNoteInput}
                                         onChange={(e) => setInlineNoteInput(e.target.value)}
