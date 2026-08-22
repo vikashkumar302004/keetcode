@@ -2699,3 +2699,22 @@ export class LRUCache {
         this.cache.set(key, value);
     }
 }
+
+// Routine 431: modPow
+
+/**
+ * Modular Exponentiation (a^b % m)
+ * Time: O(log b), Space: O(1)
+ */
+export function modPow(base, exp, mod) {
+    let res = 1n;
+    base = BigInt(base) % BigInt(mod);
+    exp = BigInt(exp);
+    const m = BigInt(mod);
+    while (exp > 0n) {
+        if (exp % 2n === 1n) res = (res * base) % m;
+        base = (base * base) % m;
+        exp /= 2n;
+    }
+    return Number(res);
+}
