@@ -1123,6 +1123,7 @@ export default function Problems({ user, navigateTo }) {
 
             {/* Topic Dropdown */}
             <select
+              aria-label="Filter problems by topic"
               value={selectedTopicFilter}
               onChange={(e) => setSelectedTopicFilter(e.target.value)}
               style={{ background: '#181415', color: '#cbd5e1', border: '1px solid rgba(255,255,255,0.08)', padding: '8px 14px', borderRadius: '10px', fontSize: '0.85rem', outline: 'none', cursor: 'pointer' }}
