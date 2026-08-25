@@ -2864,3 +2864,26 @@ export class Trie {
         return true;
     }
 }
+
+// Routine 438: debounceThrottle
+
+/**
+ * Debounce & Throttle Utilities for KeetCode UI
+ */
+export function debounce(fn, delay = 300) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+    };
+}
+export function throttle(fn, limit = 300) {
+    let inThrottle;
+    return (...args) => {
+        if (!inThrottle) {
+            fn(...args);
+            inThrottle = true;
+            setTimeout(() => { inThrottle = false; }, limit);
+        }
+    };
+}
