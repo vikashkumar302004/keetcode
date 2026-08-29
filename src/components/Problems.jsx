@@ -1544,6 +1544,8 @@ export default function Problems({ user, navigateTo }) {
                                       {/* Notes Plus Button */}
                                       <td style={{ padding: '12px 10px', textAlign: 'center' }}>
                                         <button
+                                          aria-label={`Notes for ${prob.name}`}
+                                          aria-expanded={isNoteExpanded}
                                           onClick={() => toggleInlineNote(prob.id)}
                                           title={hasNote ? "View / Edit Note" : "Add Note"}
                                           style={{
