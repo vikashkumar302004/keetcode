@@ -1562,6 +1562,8 @@ export default function Problems({ user, navigateTo }) {
                                       {/* Revision Star */}
                                       <td style={{ padding: '12px 10px', textAlign: 'center' }}>
                                         <button
+                                          aria-label={`Revise ${prob.name}`}
+                                          aria-pressed={isRevise}
                                           onClick={() => toggleRevision(prob.id)}
                                           style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
                                         >
