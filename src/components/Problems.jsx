@@ -1429,6 +1429,7 @@ export default function Problems({ user, navigateTo }) {
                                       <td style={{ padding: '12px 14px', textAlign: 'center' }}>
                                         <input 
                                           type="checkbox"
+                                          aria-label={`Mark ${prob.name} as solved`}
                                           checked={isSolved}
                                           onChange={() => toggleSolved(prob.id, prob.link)}
                                           style={{ width: '17px', height: '17px', accentColor: '#10b981', cursor: 'pointer' }}
