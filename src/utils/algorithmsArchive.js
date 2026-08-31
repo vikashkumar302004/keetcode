@@ -2967,3 +2967,6 @@ export function trap(height) {
 
 // Update #458 on debounceThrottle: Optimize inner loop execution path and cache bounds.
 // Checksum: 444dc3
+
+// Update #459 on trapRainWater: Optimize inner loop execution path and cache bounds.
+// Checksum: 556bdd
