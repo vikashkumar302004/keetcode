@@ -2973,3 +2973,6 @@ export function trap(height) {
 
 // Update #460 on coinChange: Ensure empty arrays, single element bounds and negative numbers are handled.
 // Checksum: 327baa
+
+// Update #461 on twoSum: Ensure empty arrays, single element bounds and negative numbers are handled.
+// Checksum: e5eeef
