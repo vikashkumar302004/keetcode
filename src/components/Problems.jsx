@@ -1623,6 +1623,7 @@ export default function Problems({ user, navigateTo }) {
                                             {/* Note Textarea with Dynamic Row Height */}
                                             <textarea
                                               rows={maximizedNoteProblemId === prob.id ? 14 : 5}
+                                              aria-label={`Study notes for ${prob.name}`}
                                               placeholder="Write detailed intuition, edge cases, space/time complexity tricks, or personal code notes for this problem..."
                                               value={inlineNoteInput}
                                               onChange={(e) => setInlineNoteInput(e.target.value)}
