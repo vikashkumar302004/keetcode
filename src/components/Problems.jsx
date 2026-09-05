@@ -219,6 +219,7 @@ function FullscreenNotesModal({ problem, onClose, onSave, initialText, uid }) {
           <textarea 
             value={textVal}
             onChange={(e) => setTextVal(e.target.value)}
+            aria-label="Problem approach and code notes"
             placeholder="Type your intuition, step-by-step approach, time/space complexity analysis, or paste C++ code here..."
             style={{ flex: 1, width: '100%', background: '#070912', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '16px', color: '#f8fafc', fontSize: '0.92rem', outline: 'none', resize: 'none', fontFamily: 'var(--font-mono)', lineHeight: 1.6 }}
           />
