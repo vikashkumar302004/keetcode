@@ -607,6 +607,7 @@ Target Companies: Google, Meta, Amazon, Microsoft
                 type="number" 
                 value={customTarget}
                 onChange={e => setCustomTarget(e.target.value)}
+                aria-label="Target sum"
                 placeholder="Target Sum e.g. 9"
                 style={{ background: '#121624', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', padding: '8px 14px', borderRadius: '8px', fontSize: '0.85rem', width: '130px' }}
               />
