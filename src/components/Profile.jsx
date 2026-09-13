@@ -544,6 +544,7 @@ export default function Profile({ user, onUpdateUser }) {
               <div style={{ display: 'flex', gap: '6px', marginTop: '10px', animation: 'fadeIn 0.2s' }}>
                 <input 
                   type="text" 
+                  aria-label="GeeksforGeeks profile URL or username"
                   placeholder="Paste GFG profile URL or username" 
                   value={gfgInput}
                   onChange={e => setGfgInput(e.target.value)}
