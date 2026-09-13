@@ -403,6 +403,7 @@ export default function Courses({ navigateTo }) {
               <Search size={14} color="#94a3b8" style={{ position: 'absolute', left: '10px', top: '10px' }} />
               <input 
                 type="text" 
+                aria-label="Search system design chapters"
                 placeholder="Search Ad Click, Rate Limiter..." 
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
