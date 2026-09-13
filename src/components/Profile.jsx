@@ -483,6 +483,7 @@ export default function Profile({ user, onUpdateUser }) {
               <div style={{ display: 'flex', gap: '6px', marginTop: '10px', animation: 'fadeIn 0.2s' }}>
                 <input 
                   type="text" 
+                  aria-label="LeetCode profile URL or username"
                   placeholder="Paste profile URL or username" 
                   value={lcInput}
                   onChange={e => setLcInput(e.target.value)}
