@@ -599,6 +599,7 @@ Target Companies: Google, Meta, Amazon, Microsoft
                 type="text" 
                 value={customInputStr}
                 onChange={e => setCustomInputStr(e.target.value)}
+                aria-label="Sorted array values"
                 placeholder="Sorted Array e.g. 2, 7, 11, 15"
                 style={{ background: '#121624', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', padding: '8px 14px', borderRadius: '8px', fontSize: '0.85rem', width: '220px' }}
               />
