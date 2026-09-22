@@ -758,6 +758,7 @@ export default function Profile({ user, onUpdateUser }) {
 
               {/* Year Select Dropdown (Matching Screenshot [ Current ⌄ ]) */}
               <select
+                aria-label="Contribution year"
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
                 style={{
