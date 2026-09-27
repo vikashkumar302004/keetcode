@@ -900,8 +900,8 @@ export default function Profile({ user, onUpdateUser }) {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '30px' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '6px' }}>Display Name</label>
-                <input type="text" value={editForm.name} onChange={e => setEditForm({...editForm, name: e.target.value})} className="form-input" style={{ width: '100%', padding: '10px', background: '#0a080a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff' }} />
+                <label htmlFor="profile-name" style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '6px' }}>Display Name</label>
+                <input id="profile-name" type="text" value={editForm.name} onChange={e => setEditForm({...editForm, name: e.target.value})} className="form-input" style={{ width: '100%', padding: '10px', background: '#0a080a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff' }} />
               </div>
               <div>
                 <label style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '6px' }}>Avatar Image URL</label>
