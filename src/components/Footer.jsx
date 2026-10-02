@@ -138,7 +138,7 @@ export default function Footer({ navigateTo }) {
                 {activePolicyModal === 'terms' && 'Terms of Service'}
                 {activePolicyModal === 'cookies' && 'Cookie & Security Policy'}
               </h3>
-              <button onClick={() => setActivePolicyModal(null)} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer' }}>
+              <button type="button" aria-label="Close policy dialog" onClick={() => setActivePolicyModal(null)} style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer' }}>
                 <X size={20} />
               </button>
             </div>
