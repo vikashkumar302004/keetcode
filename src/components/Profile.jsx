@@ -920,8 +920,8 @@ export default function Profile({ user, onUpdateUser }) {
                 <input id="profile-school" type="text" placeholder="e.g., IIT Bombay" value={editForm.school} onChange={e => setEditForm({...editForm, school: e.target.value})} className="form-input" style={{ width: '100%', padding: '10px', background: '#0a080a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff' }} />
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '6px' }}>Short Bio</label>
-                <textarea rows={3} placeholder="Passionate C++ developer..." value={editForm.bio} onChange={e => setEditForm({...editForm, bio: e.target.value})} className="form-input" style={{ width: '100%', padding: '10px', background: '#0a080a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', resize: 'none' }} />
+                <label htmlFor="profile-bio" style={{ display: 'block', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '6px' }}>Short Bio</label>
+                <textarea id="profile-bio" rows={3} placeholder="Passionate C++ developer..." value={editForm.bio} onChange={e => setEditForm({...editForm, bio: e.target.value})} className="form-input" style={{ width: '100%', padding: '10px', background: '#0a080a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#fff', resize: 'none' }} />
               </div>
             </div>
             
