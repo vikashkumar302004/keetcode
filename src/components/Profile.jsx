@@ -895,7 +895,9 @@ export default function Profile({ user, onUpdateUser }) {
           <div className="glass-panel" style={{ width: '100%', maxWidth: '460px', padding: '30px', borderRadius: '20px', maxHeight: '90vh', overflowY: 'auto', background: '#120f12', border: '1px solid rgba(255,255,255,0.12)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
               <h3 style={{ margin: 0, fontSize: '1.3rem', fontWeight: 800, color: '#fff' }}>Edit Profile</h3>
-              <X size={20} style={{ cursor: 'pointer', color: '#94a3b8' }} onClick={() => setIsEditing(false)} />
+              <button type="button" aria-label="Close profile editor" onClick={() => setIsEditing(false)} style={{ background: 'transparent', border: 'none', padding: '4px', cursor: 'pointer', color: '#94a3b8' }}>
+                <X size={20} />
+              </button>
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '30px' }}>
